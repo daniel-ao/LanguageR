@@ -381,11 +381,12 @@ table(pop$etudes2, useNA="always")
 # Pour une qualitative nominale
 skim::skim(pop)
 
+pop$loisirs3= pop$loisirs
 
-##############################
-#Check phone Sep 23, 10:11
-##############################
+levels(pop$loisir3)= c(levels(pop$loisirs3), "inconnu") # On ajoute a la suite des precedentes modalites, la nouvelle
 
+pop$loisirs3[is.na(pop$loisirs3)] = "inconnu" # on impute
+table(pop$loisirs3, useNA = "always")
 
 ```
 #####################################################################################################
@@ -416,7 +417,12 @@ unique(pop$tempsPlein)
 pop$salaire3= pop$salaire
 
 pop$salaire3[ (pop$salaire3 %in% Box$out) & (pop$tempsPlein =="oui")]
-mean(pop$salaire3)
+mean(pop$salaire3[pop$tempsPlein =="oui"],na.rm=T)
+
+pop$salaire3[ (pop$salaire3 %in% Box$out) & (pop$tempsPlein =="non")]
+mean(pop$salaire3[pop$tempsPlein =="oui"],na.rm=T)
+
+pop$salaire3[pop$salaire %in% Box$out]
 
 ```
 
