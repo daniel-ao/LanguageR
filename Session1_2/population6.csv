@@ -1,0 +1,81 @@
+numero;sexe;age;etudes;salaire;tempsPlein;loyer;credit;voiture;transportTravail;enfants;loisirs;budgetVacances;satisfaction
+1;Homme;27;BAC+5;1711;1;1062,5;non;non;métro;0;autres;668,5;4
+2;Homme;23;BEP;887;2;412,5;non;oui;2 roues;0;voyages;505,5;4
+3;Homme;25;BEP;1217;1;738,5;non;oui;2 roues;1;autres;462,5;4
+4;Homme;24;CAP;1327;1;735,5;oui;oui;voiture;2;télévision;643,5;3
+5;Homme;29;BEP;1171;1;512,5;non;oui;2 roues;1;autres;728,5;4
+6;Femme;29;BAC;1042;1;479;non;non;train;0;cinéma;400;1
+7;Femme;20;CAP;1187;1;367,5;oui;oui;voiture;0;télévision;778,5;4
+8;Femme;30;BAC;1035;1;485,5;non;oui;2 roues;1;télévision;556,5;3
+9;Femme;25;CAP;1206;1;578;non;non;train;0;;560;1
+10;Femme;21;BEP;416;2;31;oui;oui;voiture;3;autres;273;2
+11;Femme;23;BAC;1078;2;643;non;oui;2 roues;1;cinéma;527;1
+12;Femme;28;BAC;1208;2;552;oui;oui;autres;0;cinéma;680;4
+13;Homme;25;BAC;1294;1;693;oui;oui;voiture;0;sport;642;1
+14;Homme;21;BAC;1214;1;547;non;non;métro;0;autres;695;1
+15;Homme;26;BAC;1301;1;716,5;oui;oui;autres;0;shopping;693,5;3
+16;Femme;24;BEP;1318;1;804;non;non;train;2;cinéma;525;3
+17;Homme;20;CAP;1309;1;848,5;oui;oui;autres;1;shopping;606,5;3
+18;Homme;21;;1440;1;;non;non;train;1;sport;498;2
+19;Homme;25;BAC;1316;1;573;non;oui;2 roues;0;shopping;706;1
+20;Femme;25;CAP;949;1;605,5;oui;oui;autres;1;télévision;460,5;3
+21;Homme;26;BAC+2;1528;1;902;oui;oui;autres;2;télévision;635;2
+22;Homme;27;BAC+5;1600;1;933;non;non;métro;0;sport;459;1
+23;Homme;21;BAC+2;1418;1;764;non;non;train;2;cinéma;598;4
+24;Femme;27;BEP;1156;1;553;oui;oui;autres;0;télévision;675;4
+25;Homme;30;BAC;1339;1;536,5;non;non;train;3;télévision;643,5;1
+26;Homme;23;BEP;936;2;;non;non;métro;0;autres;525;2
+27;Femme;20;BAC;1076;1;510;oui;oui;voiture;0;cinéma;614;4
+28;Femme;22;BEP;1305;1;561,5;oui;oui;autres;1;shopping;774,5;2
+29;Homme;28;BAC+2;1464;1;628;non;oui;2 roues;1;télévision;750;4
+30;Homme;22;BEP;979;2;475,5;non;oui;2 roues;0;sport;622,5;1
+31;Homme;20;BEP;1155;1;678,5;oui;oui;voiture;1;shopping;594,5;2
+32;Homme;30;BAC+2;1398;1;;non;non;métro;2;sport;628;4
+33;Femme;27;BEP;1130;1;380;oui;oui;voiture;0;autres;678;4
+34;Homme;30;CAP;1362;1;779;non;non;métro;3;télévision;652;4
+35;Homme;29;BAC;1270;1;608;oui;oui;voiture;1;cinéma;541;3
+36;Femme;20;BEP;967;2;688,5;non;non;train;0;autres;354,5;2
+37;Femme;24;CAP;776;2;275;oui;oui;voiture;1;sport;542;4
+38;Homme;28;BEP;1274;1;667;non;oui;2 roues;3;télévision;345;1
+39;Femme;27;BAC;1191;1;632,5;non;oui;2 roues;1;cinéma;632,5;3
+40;Femme;30;BEP;1107;1;411,5;oui;oui;voiture;0;sport;663,5;4
+41;Femme;26;CAP;1122;1;353;non;oui;2 roues;2;shopping;689;2
+42;Homme;22;BAC+2;1540;1;697;non;oui;2 roues;3;sport;941;3
+43;Homme;30;BEP;1197;1;381,5;oui;oui;autres;1;sport;897,5;1
+44;Homme;25;BAC+3;1464;1;;oui;oui;voiture;4;cinéma;710;4
+45;Femme;26;CAP;1132;1;518;non;oui;2 roues;2;cinéma;659;3
+46;Homme;21;CAP;1139;1;708,5;oui;oui;autres;1;shopping;497,5;1
+47;Femme;30;BAC;1259;1;530,5;non;non;métro;0;sport;695,5;4
+48;Femme;30;CAP;1225;1;575,5;oui;oui;voiture;0;autres;519,5;3
+49;Femme;28;CAP;1155;1;574,5;non;oui;2 roues;1;cinéma;760,5;3
+50;Homme;23;BAC+3;1562;1;614;non;non;train;2;télévision;980;4
+51;Homme;20;CAP;987;1;439,5;oui;oui;voiture;2;télévision;632,5;2
+52;Homme;20;BAC;1381;1;862,5;oui;oui;autres;3;voyages;538,5;2
+53;Femme;23;BEP;988;1;508;non;oui;2 roues;0;shopping;519;3
+54;Homme;20;BAC;1310;1;574;non;non;métro;1;cinéma;669;4
+55;Homme;21;BEP;1357;1;473,5;oui;oui;voiture;0;shopping;929,5;3
+56;Homme;20;CAP;1170;1;412;oui;oui;autres;0;shopping;634;3
+57;Femme;21;BAC;1350;1;783;oui;oui;voiture;1;télévision;515;4
+58;Femme;23;BEP;838;2;485;non;oui;2 roues;0;télévision;238;1
+59;Homme;24;BAC+3;1501;1;724,5;non;non;train;1;cinéma;929,5;3
+60;Femme;21;BAC;;2;570;non;oui;2 roues;0;voyages;323;2
+61;Homme;29;BAC;931;1;364,5;non;non;train;0;voyages;521,5;1
+62;Homme;25;BAC+5;1603;1;;non;non;métro;4;shopping;810,5;4
+63;Homme;22;CAP;986;1;458;non;non;train;0;shopping;439;4
+64;Femme;22;BAC;1194;1;720;non;non;métro;1;télévision;490;2
+65;Homme;27;CAP;1276;1;588;non;non;métro;0;sport;577;2
+66;Homme;20;BEP;1184;2;825;non;non;train;1;sport;345;1
+67;Femme;22;BAC+2;1430;1;814;oui;oui;voiture;2;sport;648;1
+68;Homme;28;BAC;1290;1;615;oui;oui;autres;0;télévision;644;3
+69;Homme;26;BAC+5;1761;1;912,5;oui;oui;voiture;3;télévision;679,5;3
+70;Femme;29;BEP;1160;1;564;oui;oui;voiture;1;autres;473;1
+71;Homme;29;BAC+2;1427;1;762,5;oui;oui;autres;1;cinéma;750,5;3
+72;Homme;24;BAC+3;1533;1;718,5;non;non;train;4;sport;836,5;4
+73;Homme;28;CAP;;2;357,5;non;non;train;0;voyages;535,5;1
+74;Femme;25;;999;2;564,5;non;non;train;1;sport;177,5;1
+75;Femme;21;BEP;1139;1;669,5;non;oui;2 roues;1;sport;460,5;3
+76;Homme;29;BAC+2;1404;1;630;non;oui;2 roues;1;voyages;714;2
+77;Homme;24;BAC;1423;1;517,5;oui;oui;voiture;0;shopping;841,5;4
+78;Femme;21;CAP;1127;2;608,5;oui;oui;autres;0;sport;402,5;2
+79;Femme;23;BAC+2;1484;1;747;oui;oui;autres;0;voyages;740;2
+80;Homme;28;BAC+5;1761;1;912,5;oui;oui;voiture;3;;679,5;1

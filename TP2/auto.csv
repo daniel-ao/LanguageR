@@ -1,0 +1,176 @@
+POSSESSION;APPARTENANCE;MARQUE;TYPE;ANCIENNETE;PUISSANCE;CARBURANT;OPTIONS;NOTE;ENTRETIEN;KILOMETRAGE;DEPENSE;CRITERE1;CRITERE2;CRITERE3;CRITERE4;CRITERE5;SEXE;CSP
+Oui;famille;Citroen;Occasion;5;4-5_CV;Sans plomb;Ordinateur de bord;11.00;0;40;0;consommation;securite;cout_entretien;vitesse;confort;Femme;Etudiant
+Oui;famille;Citroen;Occasion;;moins_de_4CV;Sans plomb;Autres;12.00;0;1300;500;cout_entretien;consommation;pollution;vitesse;esthetique;Homme;Etudiant
+Oui;famille;Autre;Neuve;2;;Gasoil;Airbags;16.00;0;400;100;cout_entretien;esthetique;consommation;confort;vitesse;Homme;Etudiant
+Oui;vous;Renault;Neuve;4;6-7_CV;Essence;Climatisation;15.00;1;1500;2000;confort;esthetique;securite;espace;vitesse;Homme;Cadre
+Oui;vous;Peugeot;Occasion;8;4-5_CV;Essence;Autres;10.00;1;500;400;esthetique;vitesse;consommation;pollution;espace;Femme;Etudiant
+Oui;vous;Renault;Neuve;2;4-5_CV;Gasoil;Airbags;17.00;0;500;600;confort;securite;consommation;esthetique;cout_entretien;Femme;Employe
+Oui;famille;Renault;Neuve;2;4-5_CV;Gasoil;Airbags;14.00;0;100;0;esthetique;confort;vitesse;cout_entretien;consommation;Homme;Etudiant
+Oui;vous;Peugeot;Occasion;3;4-5_CV;Sans plomb;Airbags;11.00;1;500;1000;confort;securite;esthetique;espace;consommation;Homme;Inactif
+Oui;vous;Ford;Neuve;3;4-5_CV;Essence;Climatisation;12.00;0;1000;1200;confort;esthetique;espace;pollution;securite;Femme;Employe
+Oui;vous;Mercedes;Occasion;4;8-9_CV;Essence;Climatisation;17.00;5;3000;2000;esthetique;vitesse;confort;securite;La tenue de route;Homme;Cadre
+Oui;famille;Renault;Occasion;5;4-5_CV;Gasoil;Autres;12.00;0;500;200;confort;cout_entretien;pollution;esthetique;consommation;Femme;Inactif
+Oui;vous;Volkswagen;Occasion;;4-5_CV;Gasoil;Jantes alu;11.00;10;1500;1500;consommation;esthetique;espace;cout_entretien;confort;Homme;Commerçant-artis
+Oui;vous;Opel;Occasion;2;4-5_CV;Gasoil;Climatisation;13.00;0;800;1000;confort;esthetique;cout_entretien;securite;consommation;Femme;Employe
+Oui;vous;Autre;Occasion;;6-7_CV;Essence;Airbags;12.00;3;2000;1500;esthetique;vitesse;cout_entretien;consommation;securite;Homme;Commerçant-artis
+Oui;societe;Renault;Neuve;;6-7_CV;Gasoil;Airbags;12.00;2;5000;3000;consommation;vitesse;securite;esthetique;cout_entretien;Homme;Cadre
+Oui;vous;BMW;Neuve;1;8-9_CV;Essence;Autres;18.00;8;1500;2000;esthetique;vitesse;confort;consommation;cout_entretien;Homme;Commerçant-artis
+Oui;vous;Volkswagen;Occasion;3;6-7_CV;Sans plomb;Jantes alu;11.00;1;1500;1000;confort;securite;esthetique;cout_entretien;vitesse;Femme;
+Oui;vous;Ford;Neuve;4;4-5_CV;Sans plomb;Autres;11.00;0;700;500;cout_entretien;securite;esthetique;espace;confort;Femme;Chomeur
+Oui;vous;Toyota;Neuve;4;6-7_CV;Sans plomb;Climatisation;17.00;15;2000;2000;confort;pollution;espace;La tenue de route;consommation;Homme;
+Oui;vous;Autre;Neuve;1;8-9_CV;Essence;Lecteur CD;16.00;2;2000;2500;esthetique;vitesse;confort;espace;pollution;Homme;Cadre
+Oui;vous;Autre;Occasion;6;4-5_CV;Gasoil;Airbags;11.00;3;1000;600;cout_entretien;consommation;esthetique;pollution;vitesse;Homme;Ouvrier
+Oui;vous;Renault;Neuve;3;4-5_CV;Essence;Airbags;13.00;0;1200;1500;esthetique;confort;consommation;pollution;securite;Femme;Cadre
+Oui;vous;Renault;Occasion;5;4-5_CV;Gasoil;Lecteur CD;14.00;1;1000;800;esthetique;securite;confort;consommation;pollution;Femme;Employe
+Oui;vous;Ford;Neuve;4;6-7_CV;Gasoil;Airbags;12.00;2;1000;1000;esthetique;cout_entretien;vitesse;consommation;pollution;Homme;Chomeur
+Oui;vous;BMW;Neuve;1;8-9_CV;Gasoil;Climatisation;15.00;2;2000;1500;vitesse;consommation;cout_entretien;esthetique;confort;Homme;Cadre
+Oui;vous;Peugeot;Neuve;0;4-5_CV;GPL;Climatisation;18.00;1;1500;1000;esthetique;pollution;consommation;confort;cout_entretien;Femme;Employe
+Oui;vous;Fiat;Occasion;3;6-7_CV;Gasoil;Jantes alu;17.00;15;3000;2000;vitesse;esthetique;cout_entretien;consommation;confort;Homme;Commerçant-artis
+Oui;famille;Volkswagen;Neuve;1;;Sans plomb;Climatisation;13.00;0;100;0;cout_entretien;securite;consommation;esthetique;confort;Femme;Etudiant
+Oui;vous;Renault;Occasion;;moins_de_4CV;Sans plomb;;10.00;0;800;400;cout_entretien;pollution;securite;consommation;confort;Femme;Employe
+Oui;vous;Volvo;Occasion;;moins_de_4CV;Gasoil;;8.00;1;500;500;cout_entretien;consommation;confort;espace;esthetique;Femme;Ouvrier
+Oui;societe;Renault;Neuve;;4-5_CV;GPL;Airbags;13.00;5;4000;2000;confort;pollution;cout_entretien;consommation;esthetique;Homme;Cadre
+Oui;vous;Autre;Neuve;2;8-9_CV;Essence;Climatisation;13.00;10;2000;2500;confort;espace;La tenue de route;cout_entretien;esthetique;Homme;
+Oui;vous;Peugeot;Neuve;4;4-5_CV;Gasoil;Airbags;11.00;0;1000;800;confort;cout_entretien;consommation;esthetique;pollution;Femme;Employe
+Oui;vous;Ford;Occasion;;moins_de_4CV;Sans plomb;;10.00;1;500;500;confort;cout_entretien;consommation;esthetique;pollution;Femme;Employe
+Oui;vous;Autre;Occasion;7;moins_de_4CV;Essence;;10.00;2;1000;800;esthetique;cout_entretien;consommation;pollution;confort;Homme;
+Oui;vous;Autre;Neuve;1;10CV_et_plus;Essence;Jantes alu;15.00;15;1500;3000;esthetique;vitesse;pollution;La tenue de route;securite;Homme;Cadre
+Oui;vous;Citroen;Occasion;6;4-5_CV;Essence;Jantes alu;13.00;2;300;500;cout_entretien;consommation;pollution;esthetique;confort;Homme;Agriculteur
+Oui;vous;Volkswagen;Neuve;4;6-7_CV;Essence;Climatisation;14.00;5;2500;2000;esthetique;cout_entretien;vitesse;consommation;La tenue de route;Homme;
+Oui;vous;Volkswagen;Neuve;1;8-9_CV;Essence;Ordinateur de bord;16.00;10;6000;5000;vitesse;esthetique;confort;espace;pollution;Homme;Cadre
+Oui;famille;Autre;Neuve;;;Gasoil;Climatisation;12.00;0;1500;1000;esthetique;vitesse;pollution;consommation;cout_entretien;Femme;Etudiant
+Oui;vous;Renault;Occasion;5;4-5_CV;Gasoil;Jantes alu;11.00;2;1500;800;cout_entretien;esthetique;consommation;vitesse;confort;Homme;Etudiant
+Oui;vous;Peugeot;Occasion;;;Sans plomb;Lecteur CD;13.00;1;1000;800;cout_entretien;confort;esthetique;consommation;pollution;Femme;Employe
+Oui;vous;Citroen;Neuve;3;4-5_CV;Essence;Autres;13.00;1;1000;800;esthetique;cout_entretien;confort;consommation;vitesse;Femme;
+Oui;vous;Opel;Neuve;2;4-5_CV;Essence;Lecteur CD;15.00;2;1500;1000;confort;securite;cout_entretien;esthetique;espace;Femme;
+Oui;vous;Fiat;Occasion;;6-7_CV;Gasoil;Climatisation;12.00;3;2000;1500;confort;consommation;cout_entretien;esthetique;vitesse;Femme;Commerçant-artis
+Oui;societe;Peugeot;Neuve;;;Gasoil;Climatisation;15.00;5;4000;3000;esthetique;vitesse;consommation;securite;confort;Homme;Cadre
+Oui;vous;Ford;Occasion;10;4-5_CV;Gasoil;Jantes alu;11.00;1;1000;800;cout_entretien;consommation;confort;vitesse;esthetique;Homme;Ouvrier
+Oui;vous;Citroen;Occasion;7;4-5_CV;Gasoil;Autres;11.00;2;800;500;cout_entretien;consommation;pollution;vitesse;confort;Homme;Chomeur
+Oui;vous;Mercedes;Occasion;3;8-9_CV;Essence;Climatisation;15.00;5;2000;1500;esthetique;cout_entretien;vitesse;confort;pollution;Homme;Commerçant-artis
+Oui;vous;Renault;Neuve;5;4-5_CV;Gasoil;Autres;14.00;3;1000;700;esthetique;confort;cout_entretien;consommation;vitesse;Femme;Employe
+Oui;vous;Mercedes;Neuve;3;8-9_CV;Gasoil;Climatisation;16.00;0;1000;1000;esthetique;espace;confort;vitesse;consommation;Femme;Employe
+Oui;vous;Peugeot;Neuve;1;6-7_CV;Essence;Lecteur CD;17.00;1;1500;1500;esthetique;confort;vitesse;securite;cout_entretien;Femme;Cadre
+Oui;vous;Volkswagen;Occasion;;6-7_CV;Gasoil;Jantes alu;14.00;10;2000;1500;esthetique;vitesse;cout_entretien;consommation;La tenue de route;Homme;Autre
+Oui;vous;Volkswagen;Neuve;5;8-9_CV;Essence;Climatisation;13.00;5;3000;2000;esthetique;cout_entretien;vitesse;consommation;confort;Homme;Employe
+Oui;societe;Citroen;Occasion;;6-7_CV;Gasoil;Climatisation;15.00;0;3000;1500;confort;vitesse;esthetique;La tenue de route;consommation;Femme;Commerçant-artis
+Oui;vous;Renault;Occasion;3;4-5_CV;Essence;Airbags;12.00;1;2000;1200;esthetique;confort;securite;cout_entretien;vitesse;Femme;Employe
+Oui;vous;Renault;Occasion;;;GPL;Airbags;13.00;1;2000;1000;pollution;esthetique;consommation;confort;securite;Femme;
+Oui;famille;Fiat;Occasion;9;moins_de_4CV;Sans plomb;;9.00;1;1000;500;confort;securite;cout_entretien;pollution;esthetique;Femme;Chomeur
+Oui;vous;Peugeot;Occasion;;;Sans plomb;Autres;12.00;3;3000;2000;espace;confort;vitesse;cout_entretien;La tenue de route;Femme;Commerçant-artis
+Oui;vous;Autre;Neuve;4;6-7_CV;Gasoil;Airbags;12.00;2;2000;1500;confort;esthetique;espace;cout_entretien;consommation;Femme;Cadre
+Oui;vous;Autre;Occasion;5;;Essence;Jantes alu;13.00;1;1500;1000;confort;consommation;cout_entretien;esthetique;pollution;Femme;Cadre
+Oui;societe;Citroen;Neuve;;8-9_CV;Gasoil;Lecteur CD;16.00;2;5000;2000;confort;vitesse;consommation;esthetique;pollution;Homme;Cadre
+Oui;vous;Toyota;Neuve;1;6-7_CV;Essence;Climatisation;14.00;3;2000;2000;cout_entretien;esthetique;confort;vitesse;consommation;Homme;Cadre
+Oui;vous;Renault;Neuve;3;4-5_CV;Essence;Airbags;13.00;0;1750;1500;esthetique;cout_entretien;consommation;confort;pollution;Femme;Cadre
+Oui;vous;Opel;Neuve;0;6-7_CV;Gasoil;Climatisation;15.00;5;3000;2000;esthetique;confort;vitesse;securite;consommation;Homme;
+Oui;famille;Mercedes;Neuve;;8-9_CV;Gasoil;Climatisation;14.00;0;1000;750;esthetique;confort;cout_entretien;pollution;espace;Femme;
+Oui;vous;Autre;Neuve;1;8-9_CV;Essence;Lecteur CD;15.00;0;1500;1500;confort;esthetique;cout_entretien;securite;espace;Femme;
+Oui;vous;Ford;Occasion;5;6-7_CV;Sans plomb;Airbags;11.00;1;1500;1500;cout_entretien;esthetique;vitesse;confort;consommation;Homme;
+Oui;vous;Renault;Neuve;2;8-9_CV;Gasoil;Climatisation;16.00;3;2500;2000;confort;esthetique;cout_entretien;consommation;pollution;Homme;Employe
+Oui;vous;Fiat;Occasion;3;4-5_CV;Essence;Lecteur CD;12.00;1;1000;750;esthetique;confort;securite;cout_entretien;vitesse;Homme;Employe
+Oui;vous;Autre;Neuve;15;moins_de_4CV;Essence;;7.00;1;500;500;cout_entretien;consommation;vitesse;esthetique;confort;Femme;Ouvrier
+Oui;vous;Opel;Occasion;2;6-7_CV;Gasoil;Jantes alu;16.00;5;1500;1000;esthetique;cout_entretien;consommation;vitesse;confort;Homme;Ouvrier
+Oui;vous;Volvo;Neuve;12;4-5_CV;Gasoil;Autres;10.00;4;1500;1200;cout_entretien;esthetique;vitesse;confort;consommation;Homme;Ouvrier
+Oui;societe;Citroen;Neuve;;4-5_CV;Gasoil;;11.00;0;3000;1500;confort;vitesse;cout_entretien;consommation;esthetique;Homme;Cadre
+Oui;famille;Fiat;Neuve;5;4-5_CV;GPL;Airbags;15.00;2;5000;3500;espace;confort;vitesse;cout_entretien;pollution;Femme;Commerçant-artis
+Oui;vous;Autre;Neuve;1;10CV_et_plus;Essence;Climatisation;17.00;3;2500;2000;esthetique;confort;vitesse;consommation;pollution;Homme;
+Oui;vous;Volkswagen;Occasion;3;6-7_CV;GPL;Airbags;14.00;1;2000;1000;esthetique;confort;pollution;consommation;vitesse;Femme;Employe
+Oui;vous;Citroen;Occasion;5;4-5_CV;Essence;Jantes alu;12.00;1;1500;1000;cout_entretien;esthetique;vitesse;confort;La tenue de route;Homme;Ouvrier
+Oui;famille;Autre;Neuve;5;4-5_CV;Gasoil;Autres;11.00;0;1000;500;cout_entretien;consommation;esthetique;pollution;securite;Femme;Chomeur
+Oui;famille;Autre;Neuve;4;8-9_CV;GPL;Climatisation;15.00;0;2000;1000;esthetique;vitesse;confort;pollution;consommation;Homme;Autre
+Oui;famille;Volkswagen;Neuve;2;6-7_CV;Essence;Climatisation;13.00;0;1500;1000;esthetique;confort;cout_entretien;consommation;pollution;Femme;Inactif
+Oui;vous;Fiat;Occasion;8;4-5_CV;Gasoil;;7.00;1;1000;500;confort;cout_entretien;consommation;vitesse;pollution;Homme;Agriculteur
+Oui;famille;Peugeot;Occasion;9;4-5_CV;Gasoil;Autres;10.00;0;500;250;cout_entretien;espace;pollution;consommation;esthetique;Femme;Agriculteur
+Oui;vous;Ford;Neuve;2;4-5_CV;Gasoil;Airbags;11.00;2;2000;1000;cout_entretien;confort;esthetique;pollution;consommation;Homme;Agriculteur
+Oui;vous;Renault;Neuve;3;6-7_CV;GPL;Climatisation;17.00;3;2500;1500;confort;esthetique;cout_entretien;consommation;pollution;Homme;Commerçant-artis
+Oui;vous;Mercedes;Neuve;;8-9_CV;Gasoil;Jantes alu;15.00;5;2500;2500;esthetique;vitesse;securite;cout_entretien;consommation;Homme;Commerçant-artis
+Oui;vous;Opel;Neuve;2;6-7_CV;Essence;Climatisation;13.00;1;2200;1500;cout_entretien;consommation;esthetique;vitesse;confort;Homme;Commerçant-artis
+Oui;vous;Mercedes;Neuve;1;10CV_et_plus;Essence;Lecteur CD;17.00;3;3000;3000;esthetique;confort;vitesse;pollution;La tenue de route;Homme;Cadre
+Oui;vous;BMW;Occasion;3;8-9_CV;Essence;Climatisation;17.00;2;2500;2500;esthetique;securite;confort;vitesse;cout_entretien;Femme;Cadre
+Oui;vous;BMW;Occasion;4;8-9_CV;Gasoil;Climatisation;15.00;5;3000;2750;esthetique;vitesse;consommation;securite;La tenue de route;Homme;Cadre
+Oui;vous;Mercedes;Neuve;3;8-9_CV;Essence;Climatisation;15.00;4;3000;2500;esthetique;vitesse;cout_entretien;securite;pollution;Homme;Cadre
+Oui;vous;Mercedes;Occasion;;8-9_CV;Gasoil;Climatisation;14.00;5;2000;2000;vitesse;confort;esthetique;securite;pollution;Homme;Cadre
+Oui;vous;BMW;Neuve;1;10CV_et_plus;GPL;Climatisation;16.00;2;3500;2000;pollution;vitesse;confort;cout_entretien;esthetique;Homme;Cadre
+Oui;famille;Fiat;Occasion;2;4-5_CV;Gasoil;Airbags;12.00;2;1500;750;cout_entretien;consommation;La tenue de route;vitesse;confort;Femme;Chomeur
+Oui;vous;Fiat;Neuve;7;4-5_CV;Sans plomb;Autres;12.00;4;1500;1000;cout_entretien;vitesse;securite;pollution;esthetique;Homme;Chomeur
+Oui;vous;Renault;Neuve;;;Sans plomb;Airbags;13.00;0;1500;1000;confort;securite;esthetique;pollution;cout_entretien;Femme;
+Oui;vous;Peugeot;Occasion;3;4-5_CV;Gasoil;Autres;13.00;0;1500;750;confort;consommation;esthetique;cout_entretien;securite;Femme;
+Oui;vous;Citroen;Neuve;1;6-7_CV;Essence;Climatisation;14.00;1;2000;1250;confort;securite;esthetique;pollution;vitesse;Femme;Cadre
+Oui;vous;Volkswagen;Neuve;0;4-5_CV;GPL;Climatisation;14.00;0;1500;1000;esthetique;pollution;consommation;confort;cout_entretien;Femme;Cadre
+Oui;vous;Renault;Neuve;2;;Gasoil;Airbags;13.00;1;1000;500;confort;securite;esthetique;consommation;cout_entretien;Femme;Cadre
+Oui;vous;Autre;Neuve;2;6-7_CV;Essence;Climatisation;15.00;2;2500;1750;confort;securite;vitesse;esthetique;pollution;Femme;Cadre
+Oui;vous;Renault;Occasion;;4-5_CV;Essence;Airbags;13.00;0;1500;1000;confort;securite;esthetique;pollution;cout_entretien;Femme;
+Oui;vous;Peugeot;Occasion;;;Sans plomb;Autres;13.00;0;2000;1250;esthetique;securite;confort;pollution;La tenue de route;Femme;
+Oui;vous;Opel;Neuve;3;6-7_CV;Essence;Airbags;13.00;3;2000;1250;esthetique;cout_entretien;pollution;vitesse;confort;Homme;
+Oui;famille;Citroen;Occasion;6;4-5_CV;Gasoil;Lecteur CD;12.00;1;1500;750;esthetique;confort;espace;cout_entretien;pollution;Femme;Inactif
+Oui;vous;Ford;Neuve;5;6-7_CV;Gasoil;Airbags;12.00;3;1500;1000;cout_entretien;consommation;vitesse;confort;securite;Homme;Inactif
+Oui;vous;BMW;Neuve;0;10CV_et_plus;Essence;Climatisation;17.00;5;5000;4500;vitesse;cout_entretien;securite;esthetique;confort;Homme;Cadre
+Oui;vous;BMW;Occasion;3;8-9_CV;Essence;Airbags;18.00;3;2500;2000;esthetique;vitesse;confort;securite;cout_entretien;Homme;Cadre
+Oui;societe;Peugeot;Neuve;;6-7_CV;Gasoil;Climatisation;18.00;0;4000;1000;confort;esthetique;cout_entretien;securite;consommation;Femme;Cadre
+Oui;vous;Autre;Neuve;11;moins_de_4CV;Essence;Autres;5.00;5;500;500;pollution;esthetique;cout_entretien;consommation;confort;Homme;Agriculteur
+Oui;vous;Peugeot;Neuve;5;6-7_CV;Sans plomb;Airbags;12.00;5;2500;2000;pollution;cout_entretien;consommation;esthetique;confort;Homme;Agriculteur
+Oui;vous;Renault;Occasion;;4-5_CV;GPL;Airbags;17.00;10;4000;2500;cout_entretien;consommation;pollution;confort;esthetique;Homme;Agriculteur
+Oui;vous;BMW;Neuve;6;8-9_CV;Essence;Airbags;14.00;3;2500;2000;esthetique;confort;securite;vitesse;pollution;Homme;
+Oui;vous;Renault;Neuve;4;6-7_CV;Essence;Climatisation;15.00;2;2000;1000;esthetique;cout_entretien;confort;securite;vitesse;Homme;
+Oui;vous;Citroen;Occasion;7;4-5_CV;Gasoil;;12.00;1;1500;750;cout_entretien;consommation;esthetique;confort;vitesse;Homme;
+Oui;vous;Ford;Occasion;;4-5_CV;Gasoil;Airbags;12.00;0;2000;1000;cout_entretien;consommation;esthetique;confort;pollution;Femme;Employe
+Oui;vous;Volkswagen;Neuve;0;6-7_CV;GPL;Climatisation;16.00;3;2500;1500;esthetique;cout_entretien;pollution;consommation;vitesse;Homme;Employe
+Oui;vous;Renault;Occasion;;6-7_CV;Essence;Autres;11.00;2;1500;1000;cout_entretien;esthetique;confort;vitesse;consommation;Homme;Employe
+Oui;vous;Citroen;Occasion;5;4-5_CV;Sans plomb;Autres;11.00;1;1000;500;cout_entretien;esthetique;consommation;confort;pollution;Homme;Employe
+Oui;vous;Autre;Neuve;0;6-7_CV;GPL;Climatisation;15.00;0;1500;500;confort;cout_entretien;esthetique;pollution;consommation;Femme;Employe
+Oui;vous;Renault;Neuve;4;4-5_CV;Essence;Airbags;13.00;1;1500;1000;esthetique;cout_entretien;consommation;confort;pollution;Femme;Employe
+Oui;vous;Opel;Neuve;2;6-7_CV;Gasoil;Climatisation;13.00;1;1000;500;esthetique;cout_entretien;consommation;confort;securite;Femme;Employe
+Oui;vous;Peugeot;Neuve;0;6-7_CV;GPL;Autres;17.00;2;2000;1000;pollution;esthetique;cout_entretien;consommation;confort;Femme;Employe
+Oui;vous;Citroen;Occasion;;;Essence;;12.00;0;1000;500;esthetique;securite;confort;consommation;pollution;Femme;Employe
+Oui;vous;Peugeot;Occasion;12;moins_de_4CV;Essence;Jantes alu;8.00;2;1000;1000;cout_entretien;consommation;esthetique;confort;vitesse;Homme;Ouvrier
+Oui;vous;Citroen;Neuve;9;4-5_CV;Gasoil;Autres;11.00;3;1500;1000;cout_entretien;consommation;pollution;esthetique;confort;Homme;Ouvrier
+Oui;vous;Fiat;Occasion;4;4-5_CV;Gasoil;Airbags;12.00;1;1500;750;esthetique;cout_entretien;vitesse;consommation;securite;Homme;Ouvrier
+Oui;vous;Autre;Occasion;6;4-5_CV;Gasoil;;12.00;5;2000;1250;cout_entretien;consommation;esthetique;confort;vitesse;Homme;Ouvrier
+Oui;vous;Renault;Neuve;;6-7_CV;GPL;Climatisation;15.00;0;3000;2000;esthetique;pollution;cout_entretien;securite;confort;Homme;Ouvrier
+Oui;vous;Ford;Occasion;4;6-7_CV;Gasoil;Airbags;13.00;5;2000;1500;esthetique;cout_entretien;vitesse;consommation;confort;Homme;Ouvrier
+Oui;vous;Peugeot;Occasion;6;4-5_CV;Sans plomb;Lecteur CD;14.00;2;1500;1000;esthetique;cout_entretien;vitesse;consommation;confort;Homme;Ouvrier
+Oui;vous;Citroen;Neuve;11;4-5_CV;Gasoil;Autres;9.00;0;1000;500;cout_entretien;consommation;confort;securite;esthetique;Femme;Ouvrier
+Oui;vous;Fiat;Occasion;10;6-7_CV;Gasoil;;7.00;1;1500;750;cout_entretien;consommation;confort;securite;esthetique;Femme;Chomeur
+Oui;vous;Volkswagen;Occasion;8;4-5_CV;Gasoil;Autres;12.00;3;2000;1000;cout_entretien;consommation;confort;securite;esthetique;Femme;Chomeur
+Oui;vous;Renault;Occasion;;6-7_CV;Sans plomb;Autres;13.00;1;1500;1000;confort;cout_entretien;consommation;esthetique;La tenue de route;Homme;Chomeur
+Oui;vous;Volvo;Neuve;10;4-5_CV;Gasoil;Autres;12.00;2;1000;500;confort;cout_entretien;consommation;esthetique;vitesse;Homme;Chomeur
+Oui;vous;Opel;Occasion;7;4-5_CV;Essence;Autres;11.00;2;1200;900;cout_entretien;esthetique;consommation;vitesse;pollution;Homme;Chomeur
+Oui;vous;Autre;Neuve;3;8-9_CV;Essence;Lecteur CD;17.00;3;2500;2000;esthetique;cout_entretien;vitesse;confort;espace;Homme;
+Oui;vous;Renault;Neuve;1;6-7_CV;GPL;Climatisation;15.00;2;2000;750;pollution;esthetique;consommation;securite;confort;Femme;
+Oui;vous;Peugeot;Neuve;5;6-7_CV;Gasoil;Climatisation;15.00;1;1000;500;confort;securite;cout_entretien;consommation;esthetique;Homme;Inactif
+Oui;vous;Renault;Neuve;4;4-5_CV;GPL;Climatisation;14.00;1;1500;1000;confort;securite;esthetique;pollution;consommation;Femme;Inactif
+Oui;vous;Ford;Occasion;;;Essence;Climatisation;13.00;1;1000;500;esthetique;securite;cout_entretien;consommation;confort;Homme;Inactif
+Oui;vous;Citroen;Occasion;;moins_de_4CV;Gasoil;Autres;12.00;1;500;200;securite;confort;esthetique;pollution;consommation;Homme;Inactif
+Oui;vous;Volkswagen;Neuve;6;6-7_CV;Essence;Climatisation;17.00;3;2000;1000;securite;consommation;confort;cout_entretien;vitesse;Homme;Inactif
+Oui;vous;Peugeot;Neuve;7;4-5_CV;Gasoil;Autres;10.00;1;1000;500;cout_entretien;consommation;esthetique;vitesse;pollution;Homme;Inactif
+Oui;vous;Renault;Neuve;1;4-5_CV;GPL;Airbags;16.00;1;2000;1000;confort;securite;cout_entretien;consommation;pollution;Homme;Inactif
+Oui;famille;Citroen;Neuve;2;6-7_CV;Gasoil;Climatisation;13.00;0;1500;750;confort;securite;cout_entretien;consommation;pollution;Femme;Inactif
+Oui;vous;Volkswagen;Occasion;4;4-5_CV;Gasoil;Airbags;13.00;1;2000;1000;esthetique;confort;securite;vitesse;consommation;Femme;Inactif
+Oui;famille;Renault;Neuve;;;Essence;Climatisation;14.00;0;500;0;confort;securite;esthetique;pollution;espace;Femme;Inactif
+Oui;famille;BMW;Neuve;3;8-9_CV;Essence;Climatisation;15.00;0;1000;0;esthetique;confort;securite;vitesse;consommation;Femme;Autre
+Oui;vous;Renault;Neuve;5;4-5_CV;GPL;Airbags;14.00;0;750;500;confort;securite;espace;pollution;esthetique;Femme;Inactif
+Oui;vous;Opel;Occasion;4;moins_de_4CV;Gasoil;Airbags;13.00;0;500;500;confort;securite;cout_entretien;consommation;esthetique;Femme;Inactif
+Oui;vous;Renault;Occasion;6;4-5_CV;Gasoil;Jantes alu;11.00;1;1000;400;cout_entretien;consommation;esthetique;vitesse;La tenue de route;Homme;Etudiant
+Oui;vous;Peugeot;Occasion;5;6-7_CV;Essence;Jantes alu;14.00;5;1500;500;esthetique;vitesse;cout_entretien;consommation;La tenue de route;Homme;Etudiant
+Oui;vous;Ford;Occasion;4;4-5_CV;Gasoil;Autres;12.00;0;1000;500;cout_entretien;consommation;esthetique;vitesse;La tenue de route;Homme;Etudiant
+Oui;famille;Citroen;Occasion;;4-5_CV;Essence;Autres;11.00;0;500;0;cout_entretien;vitesse;esthetique;consommation;confort;Homme;Etudiant
+Oui;famille;Volkswagen;Neuve;1;6-7_CV;GPL;Airbags;15.00;1;1000;500;cout_entretien;consommation;esthetique;vitesse;pollution;Homme;Etudiant
+Oui;famille;Renault;Neuve;1;6-7_CV;Gasoil;Lecteur CD;16.00;5;1000;500;cout_entretien;esthetique;consommation;vitesse;confort;Homme;Etudiant
+Oui;famille;Opel;Occasion;4;4-5_CV;Gasoil;Autres;13.00;0;500;0;cout_entretien;esthetique;consommation;vitesse;La tenue de route;Homme;Etudiant
+Oui;famille;Toyota;Occasion;5;6-7_CV;Essence;Climatisation;13.00;0;200;50;confort;securite;vitesse;cout_entretien;consommation;Femme;Etudiant
+Oui;vous;Fiat;Occasion;9;4-5_CV;Gasoil;Autres;10.00;1;1000;300;cout_entretien;consommation;confort;securite;esthetique;Femme;Etudiant
+Oui;vous;Renault;Occasion;5;4-5_CV;Gasoil;Airbags;14.00;2;1500;600;cout_entretien;confort;securite;consommation;esthetique;Femme;Etudiant
+Oui;famille;Peugeot;Occasion;5;4-5_CV;Gasoil;Lecteur CD;13.00;0;1500;500;esthetique;confort;securite;cout_entretien;consommation;Femme;Etudiant
+Oui;famille;Volkswagen;Neuve;;;GPL;Climatisation;15.00;0;500;0;esthetique;cout_entretien;consommation;confort;securite;Femme;Etudiant
+Oui;famille;Citroen;Occasion;;;Sans plomb;Autres;13.00;0;1000;200;cout_entretien;consommation;esthetique;confort;securite;Femme;Etudiant
+Oui;famille;Renault;Occasion;4;4-5_CV;Essence;Climatisation;14.00;0;700;200;confort;securite;cout_entretien;consommation;esthetique;Femme;Etudiant
+Oui;vous;Citroen;Neuve;6;;Gasoil;Airbags;13.00;1;1000;500;confort;securite;esthetique;cout_entretien;consommation;Femme;Autre
+Oui;vous;Fiat;Occasion;10;moins_de_4CV;Essence;;8.00;1;1500;1000;cout_entretien;consommation;esthetique;confort;vitesse;Femme;Autre
+Oui;vous;Ford;Occasion;7;4-5_CV;Gasoil;Airbags;12.00;2;2000;1000;esthetique;cout_entretien;consommation;confort;securite;Femme;Autre
+Oui;famille;Volkswagen;Neuve;0;4-5_CV;GPL;Airbags;16.00;2;1500;500;esthetique;pollution;confort;securite;consommation;Femme;Autre
+Oui;vous;Renault;Occasion;7;4-5_CV;Gasoil;Autres;12.00;1;1500;700;confort;securite;esthetique;cout_entretien;consommation;Homme;Autre
+Oui;vous;Renault;Neuve;3;8-9_CV;Essence;Lecteur CD;17.00;1;1500;1100;confort;securite;vitesse;cout_entretien;esthetique;Femme;Cadre
+Oui;vous;Volkswagen;Neuve;1;6-7_CV;GPL;Climatisation;16.00;2;2000;1000;confort;securite;pollution;esthetique;cout_entretien;Femme;Cadre
+Oui;famille;Ford;Occasion;5;4-5_CV;Essence;Autres;11.00;0;500;0;esthetique;confort;securite;cout_entretien;consommation;Femme;Etudiant
+Oui;vous;Peugeot;Neuve;5;6-7_CV;GPL;Climatisation;14.00;1;2000;1000;confort;securite;pollution;cout_entretien;consommation;Femme;Employe

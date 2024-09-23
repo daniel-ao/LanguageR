@@ -1,0 +1,546 @@
+---
+title: "Tp n:2"
+output:
+  word_document: default
+  pdf_document: default
+date: "2024-09-17"
+---
+
+A. Importation et présentation des données
+
+```{r}
+
+auto=read.csv2("/home/danielao/Desktop/L3iA/LanguageR/TP2/auto.csv", header=T, stringsAsFactors = T, na.strings = c("NA","na","")) #Importation de le fichier auto.csv
+
+str(auto)# Affichage
+
+
+#Transformer la variable « puissance » en variable qualitative ordinale en donnant le bon ordre aux modalités.
+unique(auto$PUISSANCE)
+
+auto$PUISSANCE = ordered(auto$PUISSANCE, 
+                         levels = c("moins_de_4CV", "4-5_CV", "6-7_CV", "8-9_CV", "10CV_et_pl7us"))
+
+#Verification
+summary(auto$PUISSANCE)
+
+# a) Nombre d'individus (lignes)
+nombre_individus = nrow(auto)
+nombre_individus
+# b) Nombre de variables (colonnes)
+nombre_variables = ncol(auto)
+nombre_variables
+# c) Résumé statistique de toutes les variables
+summary(auto)
+
+
+```
+
+Partie 2
+B. Pour la variable APPARTENANCE, écrire le code R pour obtenir :
+```{r}
+# 1. Le tableau des effectifs pour la variable APPARTENANCE
+tableau_effectifs_appartenance = table(auto$APPARTENANCE)
+tableau_effectifs_appartenance
+
+# 2. Le tableau des fréquences pour la variable APPARTENANCE
+tableau_frequences_appartenance = prop.table(table(auto$APPARTENANCE))
+tableau_frequences_appartenance
+
+# 3. Graphique en secteurs circulaires pour la variable APPARTENANCE
+
+# Créer le graphique en secteurs circulaires
+pie(tableau_frequences_appartenance, 
+    col = c("lightblue", "lightgreen", "lightcoral"), 
+    main = "Répartition des Fréquences de l'Appartenance", 
+    labels = paste(names(tableau_frequences_appartenance), round(tableau_frequences_appartenance*100, 1), "%"))
+
+
+```
+
+C. Pour la variable MARQUE, écrire le code R pour obtenir :
+```{r}
+# 4. Le tableau des effectifs pour la variable MARQUE
+tableau_effectifs_MARQUE = sort(table(auto$MARQUE), decreasing = TRUE)
+tableau_effectifs_MARQUE
+
+# 5. Le tableau des fréquences pour la variable MARQUE
+tableau_frequences_MARQUE = prop.table(table(auto$MARQUE))
+tableau_frequences_MARQUE
+
+# 6. Graphique en tuyaux d'orgue pour représenter les effectifs de la variable MARQUE
+
+# Créer le graphique en tuyaux d'orgue (barplot)
+barplot(tableau_effectifs_MARQUE, 
+        col = c("blue", "red"),
+        main = "Effectifs des différentes marques de voitures", 
+        xlab = "Marques", 
+        ylab = "Effectifs", 
+        las = 2) 
+
+
+```
+D. Pour la variable ANCIENNETE, écrire le code R pour obtenir :
+
+```{r}
+
+# 7. Moyenne, écart type, médiane, et écart interquartile pour la variable ANCIENNETE
+
+# Vérifier si ANCIENNETE est bien numérique
+summary(auto$ANCIENNETE)
+
+# Calcul de la moyenne
+moyenne_anciennete = mean(auto$ANCIENNETE, na.rm = TRUE)
+moyenne_anciennete
+
+# Calcul de l'écart type
+ecart_type_anciennete = sd(auto$ANCIENNETE, na.rm = TRUE)
+ecart_type_anciennete
+
+# Calcul de la médiane
+mediane_anciennete = median(auto$ANCIENNETE, na.rm = TRUE)
+mediane_anciennete
+
+# Calcul de l'écart interquartile (IQR)
+ecart_interquartile_anciennete = IQR(auto$ANCIENNETE, na.rm = TRUE)
+ecart_interquartile_anciennete
+
+# 8. La liste des différentes valeurs pour la variable ANCIENNETE
+
+valeurs_anciennete = unique(auto$ANCIENNETE)
+valeurs_anciennete
+
+#Type de la variable ANCIENNETE
+type_anciennete = class(auto$ANCIENNETE)
+type_anciennete
+
+# 9. Le tableau des effectifs pour la variable ANCIENNETE
+tableau_effectifs_anciennete = table(auto$ANCIENNETE)
+tableau_effectifs_anciennete
+
+# 10. Le tableau des fréquences pour la variable ANCIENNETE
+
+tableau_frequences_anciennete = prop.table(table(auto$ANCIENNETE))
+tableau_frequences_anciennete
+
+# 11. Diagramme en bâtons pour représenter les effectifs de la variable ANCIENNETE
+
+# Créer le diagramme en bâtons pour les effectifs de ANCIENNETE
+barplot(tableau_effectifs_anciennete, 
+        col = "lightblue", 
+        main = "Effectifs des différentes anciennetés",  # Titre du graphique
+        xlab = "Ancienneté (en années)",  # Titre de l'axe des x
+        ylab = "Nombre d'individus",      # Titre de l'axe des y
+        las = 1)  # Orientation des étiquettes sur l'axe des x
+
+
+```
+
+E. Pour la variable KILOMETRAGE, écrire le code R pour obtenir :
+```{r}
+# 12. Moyenne, écart type, médiane, et écart interquartile pour la variable KILOMETRAGE
+
+# Calcul de la moyenne
+moyenne_kilometrage = mean(auto$KILOMETRAGE, na.rm = TRUE)
+moyenne_kilometrage
+
+# Calcul de l'écart type
+ecart_type_kilometrage = sd(auto$KILOMETRAGE, na.rm = TRUE)
+ecart_type_kilometrage
+
+# Calcul de la médiane
+mediane_kilometrage = median(auto$KILOMETRAGE, na.rm = TRUE)
+mediane_kilometrage
+
+# Calcul de l'écart interquartile (IQR)
+ecart_interquartile_kilometrage = IQR(auto$KILOMETRAGE, na.rm = TRUE)
+ecart_interquartile_kilometrage
+
+# 13. La liste des différentes valeurs pour la variable KILOMETRAGE
+valeurs_kilometrage = unique(auto$KILOMETRAGE)
+valeurs_kilometrage
+
+# Type de la variable KILOMETRAGE
+type_kilometrage = class(auto$KILOMETRAGE)
+type_kilometrage
+
+
+# 14. Histogramme pour la variable KILOMETRAGE avec titres et couleur personnalisés
+hist(auto$KILOMETRAGE, 
+     col = "lightgreen", 
+     main = "Répartition du Kilométrage des voitures", 
+     xlab = "Kilométrage", 
+     ylab = "Fréquence", 
+     breaks = 20)  # Ajuster le nombre de barres selon les besoins
+
+
+# 15. Histogramme avec des bornes spécifiques pour KILOMETRAGE
+hist(auto$KILOMETRAGE, 
+     breaks = c(40, 500, 1000, 1500, 2000, 3000, 4000, 6000), 
+     col = "lightblue", 
+     main = "Histogramme de Kilométrage avec bornes définies", 
+     xlab = "Kilométrage", 
+     ylab = "Fréquence")
+
+
+# 16. Discrétisation de la variable KILOMETRAGE selon des bornes définies
+bornes_kilometrage = c(0, 500, 1000, 1500, 2000, 3000, 4000, 6000)
+
+# Utiliser cut() pour discrétiser la variable
+auto$KILOMETRAGE_DISCRET = cut(auto$KILOMETRAGE, 
+                               breaks = bornes_kilometrage, 
+                               include.lowest = TRUE)
+head(auto$KILOMETRAGE_DISCRET)
+
+# 17. Tableau des effectifs pour la discrétisation de KILOMETRAGE
+tableau_effectifs_kilometrage_discret = table(auto$KILOMETRAGE_DISCRET)
+tableau_effectifs_kilometrage_discret
+
+# 18. Tableau des fréquences pour la discrétisation de KILOMETRAGE
+tableau_frequences_kilometrage_discret = prop.table(table(auto$KILOMETRAGE_DISCRET))
+tableau_frequences_kilometrage_discret
+
+# 19. Histogramme pour la discrétisation de KILOMETRAGE
+barplot(tableau_effectifs_kilometrage_discret, 
+        col = "orange", 
+        main = "Histogramme des effectifs discrétisés du Kilométrage", 
+        xlab = "Intervalles de Kilométrage", 
+        ylab = "Nombre d'individus",
+        las=2)
+
+
+```
+
+
+#---------------------------------------------------------------------------------------------------------#
+
+#----------------------------------------TP3--------------------------------------------------------------#
+
+#---------------------------------------------------------------------------------------------------------#
+
+
+A. Pour le croisement MARQUE – CARBURANT, écrire le code R pour :
+
+```{r}
+
+# 1. Tableau des effectifs pour le croisement MARQUE – CARBURANT
+tableau_effectifs_croisement = table(auto$MARQUE, auto$CARBURANT)
+tableau_effectifs_croisement
+
+# 2. Tableau des fréquences conditionnelles en ligne (MARQUE)
+frequences_ligne = prop.table(tableau_effectifs_croisement, margin = 1)
+frequences_ligne
+
+# 3. Tableau des fréquences conditionnelles en colonne (CARBURANT)
+frequences_colonne = prop.table(tableau_effectifs_croisement, margin = 2)
+frequences_colonne
+
+# Le tableau en ligne est plus utile si vous souhaitez observer comment chaque marque se répartit selon le carburant.
+
+
+# 4. Histogramme non empilé des effectifs pour MARQUE – CARBURANT
+barplot(tableau_effectifs_croisement, 
+        beside = TRUE,  # Non empilé
+        col = c("lightblue", "lightgreen", "lightcoral"), 
+        main = "Effectifs par MARQUE et CARBURANT", 
+        xlab = "Marques", 
+        ylab = "Effectifs", 
+        legend = rownames(tableau_effectifs_croisement), 
+        args.legend = c(title = "Carburant", x = "topright"))
+
+
+
+# 5. Histogramme empilé des fréquences conditionnelles jugées les plus parlantes (en ligne, par exemple)
+barplot(frequences_ligne, 
+        col = c("lightblue", "lightgreen", "lightcoral"), 
+        main = "Fréquences conditionnelles par MARQUE et CARBURANT", 
+        xlab = "Marques", 
+        ylab = "Fréquences conditionnelles", 
+        legend = colnames(frequences_ligne), 
+        args.legend = c(title = "Carburant", x = "topright"))
+
+
+```
+
+B. Pour le croisement MARQUE – SEXE, écrire le code R pour :
+
+```{r}
+
+# 1. Tableau des effectifs pour le croisement MARQUE – SEXE
+tableau_effectifs_MARQUE_SEXE = table(auto$MARQUE, auto$SEXE)
+tableau_effectifs_MARQUE_SEXE
+
+
+# 2. Fréquences conditionnelles en ligne (par MARQUE)
+frequences_ligne_MARQUE_SEXE = prop.table(tableau_effectifs_MARQUE_SEXE, margin = 1)
+frequences_ligne_MARQUE_SEXE
+
+
+# 3. Fréquences conditionnelles en colonne (par SEXE)
+frequences_colonne_MARQUE_SEXE = prop.table(tableau_effectifs_MARQUE_SEXE, margin = 2)
+frequences_colonne_MARQUE_SEXE
+
+# Define a color vector for each MARQUE
+couleurs_marques = rainbow(length(rownames(tableau_effectifs_MARQUE_SEXE)))
+
+
+# 4. Histogramme non empilé avec la légende
+bp = barplot(tableau_effectifs_MARQUE_SEXE, 
+              beside = TRUE, 
+              col = couleurs_marques,  # Assign unique colors to each MARQUE
+              main = "Effectifs par MARQUE et SEXE", 
+              xlab = "Sexe", 
+              ylab = "Effectifs")
+
+# Ajouter la légende manuellement avec la fonction legend()
+legend("topright", 
+       legend = rownames(tableau_effectifs_MARQUE_SEXE), 
+       fill = couleurs_marques, 
+       title = "Marque", 
+       inset = c(0,0.47), 
+       cex = 0.5) 
+
+
+
+# 5. Histogramme empilé des fréquences conditionnelles pour MARQUE – SEXE
+bp <- barplot(frequences_ligne_MARQUE_SEXE, 
+              col = couleurs_marques,  # Assign unique colors to each MARQUE
+              main = "Fréquences conditionnelles par MARQUE et SEXE", 
+              xlab = "Sexe", 
+              ylab = "Fréquences conditionnelles")
+
+# Ajouter la légende manuellement avec une taille réduite
+legend("topright", 
+       legend = rownames(frequences_ligne_MARQUE_SEXE), 
+       fill = couleurs_marques, 
+       title = "Marque", 
+       inset = c(0.15, 0.10), 
+       cex = 0.75)  # Adjust the text size and overall legend block size
+```
+
+C. Pour le croisement APPARTENANCE – KILOMETRAGE
+
+```{r}
+# 7. Tableau des moyennes, écart types et quartiles conditionnels selon APPARTENANCE
+
+# Moyenne pour chaque groupe d'APPARTENANCE
+moyennes_appartenance = tapply(auto$KILOMETRAGE, auto$APPARTENANCE, mean, na.rm = TRUE)
+moyennes_appartenance
+
+# Ecart type pour chaque groupe d'APPARTENANCE
+ecart_types_appartenance = tapply(auto$KILOMETRAGE, auto$APPARTENANCE, sd, na.rm = TRUE)
+ecart_types_appartenance
+
+# Quartiles pour chaque groupe d'APPARTENANCE
+quartiles_appartenance = tapply(auto$KILOMETRAGE, auto$APPARTENANCE, quantile, na.rm = TRUE)
+quartiles_appartenance
+
+########
+moyennes_kilometrage = aggregate(KILOMETRAGE ~ APPARTENANCE, data = auto, FUN = mean, na.rm = TRUE)
+ecarts_types_kilometrage = aggregate(KILOMETRAGE ~ APPARTENANCE, data = auto, FUN = sd, na.rm = TRUE)
+quartiles_kilometrage = aggregate(KILOMETRAGE ~ APPARTENANCE, data = auto, FUN = quantile, na.rm = TRUE)
+########
+
+
+# 8. Boxplot pour KILOMETRAGE par APPARTENANCE avec personnalisation
+
+boxplot(auto$KILOMETRAGE ~ auto$APPARTENANCE, 
+        col = c("lightblue", "lightgreen"),  # Couleurs personnalisées
+        main = "Boxplot du Kilométrage par Appartenance", 
+        xlab = "Appartenance", 
+        ylab = "Kilométrage", 
+        varwidth = TRUE,  # Largeur des boxplots proportionnelle à la taille des groupes
+        las = 3)  # Orientation des étiquettes de l'axe des x
+
+# 9. Histogrammes pour chaque type d'appartenance, côte à côte
+
+# Ajuster la disposition des fenêtres graphiques pour afficher 2 graphiques côte à côte
+par(mfrow = c(1, 2))  # 1 ligne, 2 colonnes
+
+# Histogramme pour la première catégorie d'APPARTENANCE
+hist(auto$KILOMETRAGE[auto$APPARTENANCE == "famille"], 
+     col = "lightblue", 
+     main = "Kilométrage - Famille", 
+     xlab = "Kilométrage", 
+     ylab = "Fréquence", 
+     breaks = 10)
+
+# Histogramme pour la deuxième catégorie d'APPARTENANCE
+hist(auto$KILOMETRAGE[auto$APPARTENANCE == "vous"], 
+     col = "lightgreen", 
+     main = "Kilométrage - Vous", 
+     xlab = "Kilométrage", 
+     ylab = "Fréquence", 
+     breaks = 10)
+
+# Reset graphic parameters
+par(mfrow = c(1, 1))
+
+
+```
+
+D. Pour le croisement MARQUE – DEPENSE
+
+```{r}
+# 10. Moyenne, écart type et quartiles conditionnels selon MARQUE
+
+# Moyenne pour chaque groupe de MARQUE
+moyennes_depense = tapply(auto$DEPENSE, auto$MARQUE, mean, na.rm = TRUE)
+moyennes_depense
+
+# Ecart type pour chaque groupe de MARQUE
+ecart_types_depense = tapply(auto$DEPENSE, auto$MARQUE, sd, na.rm = TRUE)
+ecart_types_depense
+
+# Quartiles pour chaque groupe de MARQUE
+quartiles_depense = tapply(auto$DEPENSE, auto$MARQUE, quantile, na.rm = TRUE)
+quartiles_depense
+
+
+# 11. Boxplot pour DEPENSE par MARQUE avec personnalisation
+
+boxplot(auto$DEPENSE ~ auto$MARQUE, 
+        col = rainbow(length(unique(auto$MARQUE))),  # Couleurs pour chaque MARQUE
+        main = "Boxplot des Dépenses par Marque", 
+        xlab = "Marque", 
+        ylab = "Depense", 
+        varwidth = TRUE,  # Largeur des boxplots proportionnelle à la taille des groupes
+        las = 2)  # Orientation verticale des étiquettes de l'axe des x
+
+
+```
+
+E. Pour le croisement ANCIENNETE – DEPENSE
+```{r}
+# 12. Moyenne, écart type et quartiles conditionnels selon ANCIENNETE
+
+# Moyenne pour chaque groupe d'ANCIENNETE
+moyennes_depense_anciennete = tapply(auto$DEPENSE, auto$ANCIENNETE, mean, na.rm = TRUE)
+moyennes_depense_anciennete
+
+# Ecart type pour chaque groupe d'ANCIENNETE
+ecart_types_depense_anciennete = tapply(auto$DEPENSE, auto$ANCIENNETE, sd, na.rm = TRUE)
+ecart_types_depense_anciennete
+
+# Quartiles pour chaque groupe d'ANCIENNETE
+quartiles_depense_anciennete = tapply(auto$DEPENSE, auto$ANCIENNETE, quantile, na.rm = TRUE)
+quartiles_depense_anciennete
+
+
+# 13. Nuage de points pour ANCIENNETE et DEPENSE
+plot(auto$ANCIENNETE, auto$DEPENSE, 
+     main = "Nuage de points : Ancienneté vs Dépense", 
+     xlab = "Ancienneté (années)", 
+     ylab = "Dépense (€)", 
+     pch = 19, col = "blue")
+
+
+# 14. Nuage de points coloré selon le type d'achat du véhicule
+
+# Définir les couleurs pour chaque type d'achat
+couleurs_type = c("Occasion" = "green", "Neuve" = "red")
+
+# Créer le nuage de points coloré
+plot(auto$ANCIENNETE, auto$DEPENSE, 
+     col = couleurs_type[auto$TYPE],  # Coloration selon le type d'achat
+     main = "Nuage de points : Ancienneté vs Dépense, par Type d'achat", 
+     xlab = "Ancienneté (années)", 
+     ylab = "Dépense (€)", 
+     pch = 19)
+
+# Ajouter la légende
+legend("topright", legend = names(couleurs_type), col = couleurs_type, pch = 19, title = "Type d'achat")
+
+
+# 15. Ajouter la courbe de régression au nuage de points
+
+# Créer un modèle linéaire pour la régression
+modele_regression = lm(auto$DEPENSE ~ auto$ANCIENNETE)
+
+# Tracer la courbe de régression
+abline(modele_regression, col = "red", lwd = 2)  # Ligne rouge plus épaisse pour la régression
+
+
+```
+
+F. Pour le croisement KILOMETRAGE – DEPENSE
+
+```{r}
+
+# 16. Nuage de points pour KILOMETRAGE et DEPENSE
+plot(auto$KILOMETRAGE, auto$DEPENSE, 
+     main = "Nuage de points : Kilométrage vs Dépense", 
+     xlab = "Kilométrage", 
+     ylab = "Dépense (€)", 
+     pch = 19, col = "blue")
+
+
+# 17. Tracer la droite des moindres carrés et donner son équation
+
+# Créer un modèle linéaire pour la régression
+modele_kilometrage_depense = lm(auto$DEPENSE ~ auto$KILOMETRAGE)
+
+# Tracer la droite des moindres carrés
+abline(modele_kilometrage_depense, col = "red", lwd = 2)
+
+# Afficher l'équation de la droite
+coefficients(modele_kilometrage_depense)
+
+
+
+
+# 18. Coefficient de corrélation entre KILOMETRAGE et DEPENSE
+correlation = cor(auto$KILOMETRAGE, auto$DEPENSE, use = "complete.obs")
+correlation
+
+# 19. Nuage de points coloré selon le type de carburant
+
+# Définir les couleurs pour chaque type de carburant
+couleurs_carburant = c("Essence" = "green", "Gasoil" = "blue", "Sans plomb" = "red")
+
+# Créer le nuage de points coloré
+plot(auto$KILOMETRAGE, auto$DEPENSE, 
+     col = couleurs_carburant[auto$CARBURANT],  # Coloration selon le type de carburant
+     main = "Nuage de points : Kilométrage vs Dépense, par Carburant", 
+     xlab = "Kilométrage", 
+     ylab = "Dépense (€)", 
+     pch = 19)
+
+# Ajouter la légende
+legend("topright", legend = names(couleurs_carburant), col = couleurs_carburant, pch = 19, title = "Carburant")
+
+# 20. Recodage de KILOMETRAGE en classes d'intervalles
+bornes_kilometrage = c(0, 500, 1000, 1500, 2000, 3000, 4000, 6000)
+
+# Discrétisation de KILOMETRAGE
+auto$KILOMETRAGE_CLASSE = cut(auto$KILOMETRAGE, breaks = bornes_kilometrage, include.lowest = TRUE)
+head(auto$KILOMETRAGE_CLASSE)
+
+
+
+# 21. Moyenne, écart type et quartiles conditionnels selon les classes de KILOMETRAGE
+
+# Moyenne pour chaque classe de KILOMETRAGE
+moyennes_kilometrage_classe = tapply(auto$DEPENSE, auto$KILOMETRAGE_CLASSE, mean, na.rm = TRUE)
+moyennes_kilometrage_classe
+
+# Ecart type pour chaque classe de KILOMETRAGE
+ecart_types_kilometrage_classe = tapply(auto$DEPENSE, auto$KILOMETRAGE_CLASSE, sd, na.rm = TRUE)
+ecart_types_kilometrage_classe
+
+# Quartiles pour chaque classe de KILOMETRAGE
+quartiles_kilometrage_classe = tapply(auto$DEPENSE, auto$KILOMETRAGE_CLASSE, quantile, na.rm = TRUE)
+quartiles_kilometrage_classe
+
+
+# 22. Boxplot pour DEPENSE par classes de KILOMETRAGE
+boxplot(auto$DEPENSE ~ auto$KILOMETRAGE_CLASSE, 
+        col = "lightblue", 
+        main = "Boxplot des Dépenses par Classes de Kilométrage", 
+        xlab = "Classes de Kilométrage", 
+        ylab = "Dépense (€)", 
+        varwidth = TRUE)
+
+
+```
+

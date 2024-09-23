@@ -1,0 +1,171 @@
+---
+title: "Evaluation1"
+author: "ABOU ORM Daniel"
+date: "2024-09-23"
+output:
+  word_document: default
+  html_document: default
+---
+
+# Importation 
+```{r}
+
+# 1.a Importer le fichier "sportifs.csv"
+pop = read.csv2("/home/danielao/Desktop/L3iA/LanguageR/Evaluation1/sportifs.csv", header = T, stringsAsFactors = T, na.strings = c("NA", "na", ""))
+
+str(pop) # Vérification de la structure du dataframe
+
+# 1.b Décoder la variable Région
+pop$Region = factor(pop$Region, 
+                    levels = c(1, 2, 3, 4), 
+                    labels = c("Nord", "Ouest", "Est", "Sud"))
+
+
+# 1.c Décoder la variable Motivation_Sport
+pop$Motivation_Sport = factor(pop$Motivation_Sport, 
+                              levels = c(1, 2, 3, 4, 5), 
+                              labels = c("Très faible", "Faible", "Modérée", "Forte", "Très forte"))
+
+# 2.
+str(pop) # Affiche la structure du dataframe
+ncol(pop) # Nombre de variables
+nrow(pop) # Nombre d'individus
+###########################
+
+
+# 3. Ajouter les variables Reussite et Categorie au dataframe
+
+# a) Reussite 
+pop$Reussite = with(pop, Nombre_Trophees / Competitions_Annuelles)
+
+# b) Categorie
+pop$Categorie = ifelse(pop$Temps_Entrainement_Heures < 5, "assidu", "très motivé")
+
+# Afficher les statistiques pour vérifier la création des nouvelles variables
+summary(pop$Reussite) # Résumé statistique pour la variable Reussite
+table(pop$Categorie)  # Tableau des effectifs pour la variable Categorie
+
+
+# 4. Afficher un résumé statistique clair de l'ensemble des données
+summary(pop)
+
+
+valeurs_manquantes_summary = sapply(pop, function(x) sum(is.na(x)))
+valeurs_manquantes_summary # Affiche le nombre de valeurs manquantes pour chaque variable
+library(skimr) # Use of bibliothèque skimr pour un résumé statistique enrichi,
+skim(pop)
+
+
+# 5. Traitements statistiques 
+
+# a) Tableaux des effectifs et des fréquences (Le sport pratiqué)
+tableau_effectifs_sport = table(pop$Sport_Pratiqué)
+tableau_frequences_sport = prop.table(tableau_effectifs_sport) * 100
+
+# Graphique en tuyaux d'orgue
+barplot(tableau_effectifs_sport, 
+        main = "Effectifs du Sport Pratiqué", 
+        col = "lightblue", 
+        xlab = "Sport", 
+        ylab = "Effectifs")
+
+# b) Statistiques de tendance centrale et de dispersion (La masse musculaire en kg)
+mean_masse = mean(pop$Masse_Musculaire_kg, na.rm = TRUE)
+median_masse = median(pop$Masse_Musculaire_kg, na.rm = TRUE)
+sd_masse = sd(pop$Masse_Musculaire_kg, na.rm = TRUE)
+summary_masse = summary(pop$Masse_Musculaire_kg)
+
+# Histogramme en imposant des classes bien choisies
+bornes = seq(40, 120, by = 10) # Choix des classes
+hist(pop$Masse_Musculaire_kg, 
+     breaks = bornes, 
+     col = "lightgreen", 
+     main = "Distribution de la Masse Musculaire", 
+     xlab = "Masse Musculaire (kg)", 
+     ylab = "Effectifs")
+
+# Tableaux des effectifs et des fréquences selon les classes
+pop$Masse_classe = cut(pop$Masse_Musculaire_kg, breaks = bornes)
+tableau_effectifs_masse = table(pop$Masse_classe)
+tableau_frequences_masse = prop.table(tableau_effectifs_masse) * 100
+
+# c) Tableaux des effectifs et des fréquences (La satisfaction du sport pratiqué)
+tableau_effectifs_satisfaction = table(pop$Satisfaction_Sport)
+tableau_frequences_satisfaction = prop.table(tableau_effectifs_satisfaction) * 100
+
+# Graphique en tuyaux d'orgue
+barplot(tableau_effectifs_satisfaction, 
+        main = "Satisfaction du Sport Pratiqué", 
+        col = "lightcoral", 
+        xlab = "Satisfaction", 
+        ylab = "Effectifs")
+
+# d) Statistiques de tendance centrale et de dispersion (Le nombre de trophées annuel)
+mean_trophees = mean(pop$Nombre_Trophees, na.rm = TRUE)
+median_trophees = median(pop$Nombre_Trophees, na.rm = TRUE)
+sd_trophees = sd(pop$Nombre_Trophees, na.rm = TRUE)
+summary_trophees = summary(pop$Nombre_Trophees)
+
+# Tableaux des effectifs et des fréquences
+tableau_effectifs_trophees = table(pop$Nombre_Trophees)
+tableau_frequences_trophees = prop.table(tableau_effectifs_trophees) * 100
+
+# Diagramme en bâtons
+barplot(tableau_effectifs_trophees, 
+        main = "Nombre de Trophées Annuel", 
+        col = "lightblue", 
+        xlab = "Nombre de Trophées", 
+        ylab = "Effectifs")
+
+# e) Graphique en secteurs circulaires des fréquences (Le sponsor)
+tableau_effectifs_sponsor = table(pop$Sponsor)
+tableau_frequences_sponsor = prop.table(tableau_effectifs_sponsor) * 100
+
+pie(tableau_frequences_sponsor, 
+    col = rainbow(length(tableau_frequences_sponsor)), 
+    main = "Répartition des Sponsors", 
+    labels = paste(names(tableau_frequences_sponsor), 
+                   round(tableau_frequences_sponsor, 1), "%"))
+
+
+# 6.
+
+# tableau des moyennes, écart-types, quartiles conditionnels
+moyennes_temps = aggregate(Temps_Entrainement_Heures ~ Sponsor, data = pop, FUN = mean, na.rm = TRUE)
+ecarts_types_temps = aggregate(Temps_Entrainement_Heures ~ Sponsor, data = pop, FUN = sd, na.rm = TRUE)
+quartiles_temps = aggregate(Temps_Entrainement_Heures ~ Sponsor, data = pop, FUN = quantile, na.rm = TRUE)
+
+# Affichage
+moyennes_temps
+ecarts_types_temps
+quartiles_temps
+
+
+# box-plot correspondant personnalisé
+boxplot(Temps_Entrainement_Heures ~ Sponsor, 
+        data = pop, 
+        main = "Temps d'Entraînement Hebdomadaire par Sponsor", 
+        xlab = "Sponsor", 
+        ylab = "Temps d'Entraînement (heures)", 
+        col = rainbow(length(unique(pop$Sponsor))), 
+        varwidth = TRUE)
+
+# histogramme pour chaque sponsor dans une même fenêtre graphique
+unique_sponsors = unique(pop$Sponsor) # Liste des sponsors uniques
+par(mfrow = c(2, 3)) # Divise la fenêtre graphique en 2
+
+# Je voulais essayer comment fonctionne la boucle for dans R, j'espère que je ne me suis pas trompé :)
+for (sponsor in unique_sponsors) {
+  hist(pop$Temps_Entrainement_Heures[pop$Sponsor == sponsor], 
+       main = paste("Sponsor:", sponsor), 
+       col = "lightblue", 
+       xlab = "Temps d'Entraînement (heures)", 
+       ylab = "Fréquence", 
+       breaks = 10)
+}
+
+par(mfrow = c(1, 1)) # Réinitialisation
+
+
+```
+

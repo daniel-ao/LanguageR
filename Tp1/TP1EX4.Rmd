@@ -1,0 +1,33 @@
+---
+title: "TP1"
+output:
+  word_document: default
+  pdf_document: default
+date: "2024-09-16"
+---
+
+1. Importation d'un fichier CSV
+
+```{r}
+f=read.csv2(file.choose(),header = T)
+str(f)
+
+f$INFARCT= factor(f$INFARCT,levels = c(1,2), labels = c("oui","non"))
+f$CONTRACEPTIF= factor(f$CONTRACEPTIF,levels = c(1,2), labels = c("oui","non"))
+f$TABAC= factor(f$TABAC,levels = c(1,2), labels = c("oui","non"))
+f$Antecedent= factor(f$Antecedent,levels = c(1,2), labels = c("oui","non"))
+f$Hypertension= factor(f$Hypertension,levels = c(1,2), labels = c("oui","non"))
+summary(f)
+ 
+table(f$INFARCT)
+table(f$CONTRACEPTIF)##########
+table(f$TABAC)
+table(f$Antecedent)
+table(f$Hypertension)
+
+str(f)
+
+
+
+```
+

@@ -1,0 +1,182 @@
+---
+title: "L3IA Importation - Dataframe"
+output:
+  word_document: default
+  pdf_document: default
+date: "2024-09-12"
+---
+
+# Importation d'un fichier dans R et structure de dataframe
+  
+1. Importation d un fichier csv
+
+```{r}
+
+pop0= read.csv2(file.choose(), header=T,fileEncoding = "ISO-8859-1") #importing
+#header= T : la 1re ligne = le nom des variables
+str(pop0) # DataFrame Structure
+summary(pop0)
+
+#Importation d'un .CSV en faisant reconnaitre les qualitives comme factor
+pop1= read.csv2(file.choose(),header=T, stringsAsFactors= T, fileEncoding = "ISO-8859-1")
+
+# stringsasfactors to know les qualitives comme factor
+
+str(pop1)
+summary(pop1)
+table(pop1$loisirs)
+
+
+
+
+```
+
+
+<!-- 2. Importation d'un fichier xlsx -->
+
+```{r}
+library(readxl)
+popxlsx = read_excel("/home/danielao/Desktop/L3iA/Language R/population6.xlsx")
+str(popxlsx) #Dataframe structure
+summary(popxlsx)
+table(popxlsx$loisirs, useNA = "always") #aucun pb de NA
+
+
+```
+
+3. Importation de .txt
+
+```{r}
+poptxt= read.table("/home/danielao/Desktop/L3iA/Language R/population6.txt", header = T, dec =",",sep="\t",stringsAsFactors= T, na.strings = c("", "NA", "na"))
+#
+#
+#
+str(poptxt)
+summary(poptxt)
+table(poptxt$loisirs, useNA = "always")
+```
+
+
+
+4. Des information interessant sur le dataframe
+
+```{r}
+str(popxlsx) #Dataframe structure
+names(popxlsx)# Le nom des variables
+nrow(popxlsx)# #nombre de lignes= nb of individuals
+ncol(popxlsx) # nombre de colonnes = nb of variables
+dim(popxlsx) # nb de lignes et nb de coloumns
+```
+
+5. Commment aatteindre les elements du dataframe(lignes, colonnes, cases) ?
+
+```{r}
+popxlsx[54,8] # valeur de la ligne 54 colonne 8
+popxlsx[4,] # ligne 4 du fichier
+popxlsx[,5] # coloumn 5 du fichier
+
+pop=popxlsx
+pop[,"salaire"] # colonne "salaire"
+pop$salaire # colonne salaire
+ 
+salaire # inknown val
+attach(pop)
+salaire
+```
+
+6. Blabla
+```{r}
+
+```
+ 7. Resumes statistiques du dataframe
+ 
+```{r}
+
+summary(pop)
+
+prettyR::describe(pop)
+
+skimr::skim(pop)
+
+```
+
+8. Verification du format de chaque variable
+
+8.1 Donner le bon type aux variables 
+```{r}
+table(pop$etudes)# c'est une qualitative ordinale
+unique(pop$etudes) #la liste des valeurs differentes
+
+# on ordonne la variable
+pop$etudes1= ordered(pop$etudes, levels= c("CAP", "BEP", "BAC","BAC+2", "BAC+3", "BAC+5"))
+str(pop)
+table(pop$etudes1)
+table(pop$etudes)
+```
+ 8.2 Decoder une variable qualitative nominale
+ 
+```{r}
+table(pop$tempsPlein)
+#on decode
+
+pop$tempsPlein1= factor(pop$tempsPlein, label= c("oui","non"))
+table(pop$tempsPlein1)
+
+
+
+```
+ 
+8.3 Decoder une variable qualitative nominale
+ 
+```{r}
+table(pop$satisfaction)
+
+#on decode en ajoutant "ordered = T"
+
+pop$satisfaction1= factor(pop$satisfaction, label= c("pas satisfait","peu satisfait","satisfait","tres satisfait"), ordered =T)
+table(pop$satisfaction1)
+str(pop)
+
+
+```
+
+8.4 On peur rassambler les commandes precendtes
+ 
+```{r}
+pop2= transform(popxlsx, 
+              etudes= ordered(etudes, levels=
+                               c("CAP", "BEP", "BAC","BAC+2", "BAC+3", "BAC+5")),
+              tempsPlein= factor(tempsPlein, label = c("oui","non")), 
+              satisfaction= factor(satisfaction, label= c("pas satisfait","peu satisfait","satisfait","tres satisfait"), ordered =T)
+)
+
+str(pop2)
+
+# pour enlever
+names(pop)
+
+pop$etudes = pop$etudes1
+pop$satisfaction = pop$satisfaction1
+pop= pop[, -match(c("etudes1", "satisfaction1"),names(pop))]
+names(pop)
+```
+
+8.5 Discretiser une variable quantative continue
+```{r}
+
+summary(pop$loyer)
+bornes= c(30,300,500,600,700,850,1100) # on definit le vecteur de bornes
+pop$loyer_record = cut (pop$loyer, breaks = bornes)
+table(pop$loyer_record)
+```
+
+8.6 Creation d'unne variable binaire resultat d'un test
+
+```{r}
+
+table(pop$enfants>=1, deparse.level = 2) # Table with title/ avec titre
+
+pop$famille= factor(pop$enfants>=1, labels= c("sans enfants", "aves enfants(S)"))
+table(pop$famille, deparse.level = 2)
+```
+

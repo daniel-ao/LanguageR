@@ -1,0 +1,310 @@
+---
+title: "L3IA Importation - Dataframe"
+output:
+  word_document: default
+  pdf_document: default
+date: "2024-09-12"
+---
+
+```{r}
+pop= read.csv2("/home/danielao/Desktop/L3iA/LanguageR/Session1_2/population6.csv", header = T ,stringsAsFactors= T, na.strings = c("NA", "na", ""))
+
+pop= transform(pop, 
+              etudes= ordered(etudes, levels=
+                               c("CAP", "BEP", "BAC","BAC+2", "BAC+3", "BAC+5")),
+              tempsPlein= factor(tempsPlein, label = c("oui","non")), 
+              satisfaction= factor(satisfaction, label= c("pas satisfait","peu satisfait","satisfait","tres satisfait"), ordered =T)
+)
+
+str(pop) # Dataframe structure
+summary(pop) # Resume statistique
+
+attach(pop)
+
+```
+# 1 - Traitment d'une variable qualitative nominale
+```{r}
+#Sys.setlocale("LC_ALL","French)
+(N= rev(sort(table(loisirs)))) # tableu des effictifs range par effective decr
+(N= sort(table(loisirs), decreasing=T))# Same but in another way
+(P= prop.table(N)*100) #Frequences
+barplot(N, main= "Le principale loisir" , col="green", space = 1, las=1)
+par(xpd=NA)
+G_lois= barplot(P, main= "Le principale loisir" , col="darkolivegreen2", space = 1, las=1, ylab = "Frequences en pourcentage", xlab="les loisirs")
+text(G_lois, P, paste(round(p),"%"),adj= c(0.5, -0.5))
+```
+
+Variable qualitative nominale avec peu de modailtes
+```{r}
+
+(N=table(sexe))
+(P= prop.table(N)*100) #Frequences
+
+pie(P,col=c("pink","blue")) #La liste ds couleurs dans l'ordre alphabetique des modalites
+
+pie(P,col=c("pink","blue"), main="Le genre", labels= paste (names(P),paste(round(P,0), "%"), sep="\n"))
+```
+
+# 2 - Traitment d'une variable qualitative ordinale
+```{r}
+#Sys.setlocale("LC_ALL","French)
+(N= table(etudes)) # tableu des effictifs range par effective decr
+(P= prop.table(N)*100) #Frequences
+
+barplot(N, main= "Le niveau d'etudes" , col=c("blue", "darkblue","yellow","orange","red","darkred"), space = 1, las=1)
+#---------------Lezem to run from line 55 to line 58---------------#
+par(xpd=NA)
+G_lois= barplot(P, main= "Le niveau d'etudes" , col=c("blue", "darkblue","yellow","orange","red","darkred"), space = 1, las=1, ylab ="Frequences en pourcentage", xlab="les loisirs")
+                
+text(G_lois, P, paste(round(P),"%"),adj= c(0.5, -0.5))
+#---------------Lezem to run from line 55 to line 58---------------#
+```
+
+#3 - Traitment d'une variable quantative discrete
+```{r}
+unique(age) # la liste des valeurs differentes
+# On traite age ent tant que quanti discrete
+
+#Resume statistique
+mean(age) # moyenne
+median(age) # mediane
+quantile(age) # les quartiles
+IQR(age) # ecart inter quartile (Q3 - Q1)
+sd(age) # ecart type estimee
+var(age) # variance 
+
+table(age)
+
+# Graphique : diagramme en batons
+plot(table(age), main= "age", xlab="en annees", ylab= "effectifs")
+```
+
+#4 - Traitement d'une quanti continue
+
+```{r}
+
+# Valeurs caracteristiques comme ci-dessus
+
+summary(loyer)
+#Graphiqe : histograme
+hist(loyer)
+#--------------------------------------------------------------------------------------------------------------------#
+# histogramme avec valeurs representees
+
+graph = hist(loyer, xlim=c(0,1200), ylim=c(0,25))
+text(graph$mids, graph$counts,graph$counts, adj=c(0,5, -0.5)) #Try doing it without parameter adj..
+
+#--------------------------------------------------------------------------------------------------------------------#
+
+graph # Pour voir tout ce que contient graph : bornes, centre, effectifs...
+
+```
+ Histogramme en imposant les classes 
+```{r}
+
+bornes= c(30,300,500,600,700,850, 1100)
+
+par(xpd = NA)
+graph= hist(loyer, breaks= bornes, main = "Le loyer en euros", col = "blue", xlim=c(20,1200), axes=F, ylab = "");axis(1)
+
+text(graph$mids, graph$density, graph$counts, adj = c(0.5, -0.5))
+
+```
+ 
+Boxplot
+```{r}
+
+b= boxplot(loyer, main= "Le loyer en euros")
+
+b$out #liste des valeus suspectes
+
+```
+
+Courbe cumulative 
+```{r}
+P_loyer=prop.table(table(loyer))
+cumsum(P_loyer) # frequence cumulees
+
+plot(ecdf(loyer)) # on utilise la variable
+```
+
+
+#---------------------------------------------------------------------------------------------------------#
+#SEP 17 2024#
+#---------------------------------------------------------------------------------------------------------#
+
+```{r}
+library(readxl)
+pop= read.csv2("/home/danielao/Desktop/L3iA/LanguageR/Session1_2/population6.csv", header = T, stringsAsFactors = T, na.strings = c("NA","na",""), fileEncoding = "ISO-8859-1")
+
+pop= transform(pop, 
+              etudes= ordered(etudes, levels=
+                               c("CAP", "BEP", "BAC","BAC+2", "BAC+3", "BAC+5")),
+              tempsPlein= factor(tempsPlein, label = c("oui","non")), 
+              satisfaction= factor(satisfaction, label= c("pas satisfait","peu satisfait","satisfait","tres satisfait"), ordered =T)
+)
+         
+         
+str(pop)
+```
+
+
+```{r}
+attach(pop)
+```
+
+# Partie C Statistics a deux variables
+Partie C1 Croisment de deux variables qualitatives
+Tableau et histogramme des effectifs
+```{r}
+
+table(sexe, transportTravail, deparse.level = 2, useNA = "always")
+N = table(sexe, transportTravail)
+addmargins(N)
+
+# Histogramme empile par default avec legende placee
+barplot(N,col=c("orange","green"),legend=T)
+barplot(N,col=c("orange","green"),legend=T,args.legend = list(x=3, y=19, xjust=0, yjust=0.5), space=1)
+
+# Histogramme non empile
+barplot(N,col=c("orange","green"),legend=T, beside= T, main = "Title")
+
+# Histogramme non empile en echangeant l'ordre des variables
+barplot(t(N),col=c("orange","green","blue","grey","yellow"),legend=T, beside= T, main = "Title")
+```
+Tableau et histogramme des frequences
+```{r}
+
+# Tableau des frequences totales
+(P= 100*prop.table(N))
+addmargins(P)
+
+# Tableau des frequences en ligne
+pligne= 100*prop.table(N,1)
+addmargins(pligne, 2)
+
+# Tableau des frequences en colonne
+pcol= 100*prop.table(N,2)
+addmargins(pcol, 1)
+
+
+# Histogram
+barplot(t(pligne), beside = T, col=rainbow(5), legend = T)
+
+
+barplot(pcol, col = rainbow(2), legend= T)
+
+```
+C.2 Croisement d'une qualitiative et d'une quantitative : croisement transport travail et salaire
+
+Tableau des moyens, medianes ... conditionelles
+
+
+```{r}
+
+RcmdrMisc::numSummary(salaire, groups = transportTravail)
+RcmdrMisc::numSummary(salaire, groups = transportTravail, statistics=c("mean","sd"))
+
+# Tableau synthetique complet main pas manipulable
+
+# Tableau des seules moyennes conditionelles
+aggregate(salaire ~ transportTravail, pop, mean)
+
+# Tableau des seules ecart conditionelles
+aggregate(salaire ~ transportTravail, pop, sd)
+
+# Tableau des seules quantiles conditionelles PB
+aggregate(salaire ~ transportTravail, pop, quantile)
+
+# Tableau des seules moyennes conditionelles
+aggregate(salaire ~ transportTravail, pop, summary)
+
+# Autre methode qua
+tapply(salaire, transportTravail, mean, na.rm= T)
+by(salaire, transportTravail, mean, na.rm=T)
+
+
+
+
+```
+BoxPlot
+
+```{r}
+
+boxplot(salaire~ transportTravail, main = "Repatition des salaires selon le mode de locomtion", col="cyan4")
+
+# en demandant des boiites de largeur proportionelle a l'effectif de la strate
+
+boxplot(salaire~ transportTravail, main = "Repatition des salaires selon le mode de locomtion", col="cyan", varwidth=T)
+
+
+
+```
+
+On trace un histogramme pour chaque strate definie par une variable qualitative
+```{r}
+hist(salaire)
+bornes= c(400,800,1000,1200,1400,1600,1800)
+
+#Pour definer les strates
+
+names(pop)
+unique(pop$sexe)
+
+#Definiton des strates
+HOMME= subset(pop, sexe=="Homme")
+FEMME= subset(pop, sexe= "Femme")
+
+# On decoupe la fenetre graphique en 2 et on trace les 2 histogrammes
+par(mfrow=c(1,2))# mfrow = c(1,2) demande remplissage en ligne sur 1 ligne et 2 colonnes
+
+hist(HOMME$salaire, breaks = bornes, col= "blue")
+hist(FEMME$salaire, breaks = bornes, col="purple")
+par(mfrow= c(1,1)) # Pour reviner a une fenetre graphique classique
+```
+
+c3: Crosiment de deux quantitative : croisement loyer X
+
+```{r}
+
+#Nuage de points
+
+plot(loyer ~ salaire , main= "Le loyer en fonction du salaire", pch=16, cex= 0.8, col="cyan4")
+
+plot(loyer ~ salaire , col = sexe,  main= "Le loyer en fonction du salaire", pch=16, cex= 0.8)
+
+legend("bottomright", legend = levels(sexe), col= 1:2, pch=16)
+```
+
+Correlation lineaire : coeffecient et droite
+
+```{r}
+
+# coefficient de correlation lineaire
+cor(loyer, salaire, use="complete.obs")
+
+# Trace de la droite des moindres carres
+plot(loyer ~ salaire , main= "Le loyer en fonction du salaire", pch=16, cex= 0.8, col="cyan4")
+abline(lm(loyer~salaire), col="red")
+abline(lm(loyer~salaire), col="red", lty= 2, lwd=4) # lty = type de trait lwd= epaisseur
+
+lm(loyer~ salaire)
+# Donc l'equation de la droiite des moindres carres est : loyer = - 104 +0.58 * salaire
+```
+Courbe de R=regression
+
+```{r}
+
+plot(loyer~ enfants)
+
+
+(loyersMoyens= aggregate(loyer~enfants, pop, mean))
+
+plot(loyer~ enfants)
+lines(loyersMoyens$enfants, loyersMoyens$loyer, col="red")
+
+
+```
+
+
+
