@@ -5,3 +5,248 @@ date: "2024-09-23"
 output: html_document
 ---
 
+```{r}
+
+#Importation d'un fichier
+
+
+library(readxl)
+assurance = read_excel("/home/danielao/Desktop/L3iA/LanguageR/TPs/Tp4/assurance.xlsx")
+
+str(assurance)
+
+
+# 1. Décoder
+
+# Origine
+assurance$Origine = factor(assurance$Origine, levels = c(1, 2, 3), 
+                           labels = c("américaine", "japonaise", "européenne"))
+
+# Taille
+assurance$Taille = factor(assurance$Taille, levels = c(1, 2, 3), 
+                          labels = c("petite", "moyenne", "grande"))
+
+# Type
+assurance$Type = factor(assurance$Type, levels = c(1, 2, 3), 
+                        labels = c("familiale", "sportive", "utilitaire"))
+
+# Sinistre
+assurance$Sinistre = factor(assurance$Sinistre, levels = c(1, 2), 
+                            labels = c("non", "oui"))
+
+# Marital
+assurance$Marital = factor(assurance$Marital, levels = c(1, 2, 3, 4), 
+                           labels = c("célibataire avec enfants", "marié avec enfants", 
+                                      "célibataire", "marié"))
+
+# Sexe
+assurance$Sexe = factor(assurance$Sexe, levels = c(1, 2), 
+                        labels = c("homme", "femme"))
+
+# Region
+assurance$Region = factor(assurance$Region, levels = c(1, 2, 3), 
+                          labels = c("forte densité", "densité moyenne", "faible densité"))
+
+# Print the structure to verify changes
+str(assurance)
+
+
+```
+
+2. Détection et suppression des valeurs aberrantes pour les variables Enfant et Age
+
+```{r}
+
+# Utiliser un boxplot pour détecter les valeurs aberrantes pour la variable Enfant
+boxplot(assurance$Enfant, main = "Boxplot des enfants", col = "lightblue")
+
+# Identifier les valeurs aberrantes pour la variable Enfant
+outliers_enfant = boxplot.stats(assurance$Enfant)$out
+outliers_enfant
+
+# Filtrer les données pour enlever les valeurs aberrantes pour la variable Enfant
+assurance = assurance[!(assurance$Enfant %in% outliers_enfant), ]
+
+# Utiliser un boxplot pour détecter les valeurs aberrantes pour la variable Age
+boxplot(assurance$Age, main = "Boxplot de l'âge", col = "lightgreen")
+
+# Identifier les valeurs aberrantes pour la variable Age
+outliers_age = boxplot.stats(assurance$Age)$out
+outliers_age
+
+# Filtrer les données pour enlever les valeurs aberrantes pour la variable Age
+assurance = assurance[!(assurance$Age %in% outliers_age), ]
+
+# Vérifier les données après suppression des outliers
+summary(assurance)
+
+```
+
+# Imputation des valeurs manquantes
+
+```{r}
+
+# 1. Imputation for Age and Enfant (Quantitative Variables)
+# Check for missing values in Age and Enfant
+summary(assurance$Age)
+summary(assurance$Enfant)
+
+# Impute missing values for Age using median
+assurance$Age2 = assurance$Age
+assurance$Age2[is.na(assurance$Age2)] = median(assurance$Age, na.rm = TRUE)  # Imputation par la médiane pour Age
+summary(assurance$Age2)
+
+
+# Impute missing values for Enfant using median
+assurance$Enfant2 = assurance$Enfant
+assurance$Enfant2[is.na(assurance$Enfant2)] = median(assurance$Enfant, na.rm = TRUE)  # Imputation par la médiane pour Enfant
+summary(assurance$Enfant2)
+
+# 2. Imputation for Origine (Qualitative Nominale)
+# Check for missing values in Origine
+table(assurance$Origine, useNA = "always")
+
+# Impute missing values for Origine by creating a new modality
+assurance$Origine2 = assurance$Origine
+levels(assurance$Origine2) = c(levels(assurance$Origine2), "inconnu")  # Ajout d'une nouvelle modalité 'inconnu'
+assurance$Origine2[is.na(assurance$Origine2)] = "inconnu"  # Imputation par "inconnu"
+table(assurance$Origine2, useNA = "always")
+
+# 3. Imputation for Marital (Qualitative Ordinale)
+# Check for missing values in Marital
+table(assurance$Marital, useNA = "always")
+
+# Impute missing values for Marital by creating a new modality
+assurance$Marital2 = assurance$Marital
+levels(assurance$Marital2) = c(levels(assurance$Marital2), "inconnu")  # Ajout de la modalité 'inconnu'
+assurance$Marital2[is.na(assurance$Marital2)] = "inconnu"  # Imputation par "inconnu"
+table(assurance$Marital2, useNA = "always")
+
+# 4. Imputation for Sexe (Qualitative Nominale)
+# Check for missing values in Sexe
+table(assurance$Sexe, useNA = "always")
+
+# Impute missing values for Sexe by creating a new modality
+assurance$Sexe2 = assurance$Sexe
+levels(assurance$Sexe2) = c(levels(assurance$Sexe2), "inconnu")  # Ajout de la modalité 'inconnu'
+assurance$Sexe2[is.na(assurance$Sexe2)] = "inconnu"  # Imputation par "inconnu"
+table(assurance$Sexe2, useNA = "always")
+
+# 5. Imputation for NbSinistre (Quantitative Variable)
+# Check for missing values in NbSinistre
+summary(assurance$NbSinistre)
+
+# Impute missing values for NbSinistre using the mean
+assurance$NbSinistre2 = assurance$NbSinistre
+assurance$NbSinistre2[is.na(assurance$NbSinistre2)] = mean(assurance$NbSinistre, na.rm = TRUE)  # Imputation par la moyenne
+summary(assurance$NbSinistre2)
+
+table(assurance$Sinistre, useNA = "always")
+
+# Impute missing values in Sinistre by replacing them with the most frequent category
+assurance$Sinistre2 = assurance$Sinistre
+most_frequent_sinistre = names(sort(table(assurance$Sinistre), decreasing = TRUE))[1]  # Get most frequent value
+assurance$Sinistre2[is.na(assurance$Sinistre2)] = most_frequent_sinistre  # Impute with the most frequent value
+table(assurance$Sinistre2, useNA = "always")
+
+# Check missing values in Type
+table(assurance$Type, useNA = "always")
+
+# Impute missing values in Type by replacing them with the most frequent category
+assurance$Type2 = assurance$Type
+most_frequent_type = names(sort(table(assurance$Type), decreasing = TRUE))[1]  # Get most frequent value
+assurance$Type2[is.na(assurance$Type2)] = most_frequent_type  # Impute with the most frequent value
+table(assurance$Type2, useNA = "always")
+
+# 6. Verify that missing values have been addressed in all variables
+colSums(is.na(assurance))  # Vérifier s'il reste des valeurs manquantes
+
+
+```
+
+Traitement de donnees
+
+```{r}
+
+# 1. Décoder et analyser la répartition des voitures selon leur origine
+
+# Tableau des effectifs pour la variable 'Origine'
+tableau_effectifs_origine = table(assurance$Origine2)
+tableau_effectifs_origine
+
+# Graphique en secteurs circulaires pour la variable 'Origine'
+pie(tableau_effectifs_origine, 
+    col = c("lightblue", "lightgreen", "lightcoral", "lightyellow"),
+    main = "Répartition des voitures par Origine", 
+    labels = paste(names(tableau_effectifs_origine), round(prop.table(tableau_effectifs_origine) * 100, 1), "%"))
+
+
+# 2. Analyser la distribution des tailles de voitures par type de voiture
+
+# Tableau croisé pour Taille et Type
+tableau_taille_type = table(assurance$Taille2, assurance$Type2)
+addmargins(tableau_taille_type)  # Add margins to show totals
+
+# Barplot empilé pour visualiser la distribution des tailles selon le type de voiture
+barplot(tableau_taille_type, 
+        col = c("lightblue", "lightgreen", "lightcoral"),
+        legend = rownames(tableau_taille_type), 
+        main = "Distribution des Tailles de voiture par Type",
+        xlab = "Type de voiture", 
+        ylab = "Nombre de voitures")
+
+
+# 3. Relation entre le nombre de sinistres et l'origine de la voiture
+
+# Calculer la moyenne des sinistres par origine
+moyenne_sinistres_origine = aggregate(assurance$NbSinistre2 ~ assurance$Origine2, assurance, mean)
+colnames(moyenne_sinistres_origine) = c("Origine", "NbSinistres_Moyenne")
+moyenne_sinistres_origine
+
+# Barplot des moyennes des sinistres par origine
+barplot(moyenne_sinistres_origine$NbSinistres_Moyenne, 
+        names.arg = moyenne_sinistres_origine$Origine, 
+        col = "lightblue", 
+        main = "Moyenne des Sinistres par Origine", 
+        xlab = "Origine", 
+        ylab = "Moyenne des Sinistres")
+
+
+# 4. Boxplot de l'âge selon la région de résidence
+
+# Boxplot de l'âge par région
+boxplot(assurance$Age2 ~ assurance$Region2, 
+        col = c("lightblue", "lightgreen", "lightcoral"), 
+        main = "Distribution de l'âge par Région", 
+        xlab = "Région", 
+        ylab = "Âge des assurés")
+
+
+# 5. Histogramme pour visualiser la distribution du nombre de sinistres
+
+# Histogramme pour le nombre de sinistres
+hist(assurance$NbSinistre2, 
+     col = "lightblue", 
+     main = "Distribution du Nombre de Sinistres", 
+     xlab = "Nombre de Sinistres", 
+     ylab = "Fréquence")
+
+
+# 6. Analyse croisée des sinistres et du statut marital
+
+# Tableau croisé pour Sinistre et Statut Marital
+tableau_sinistre_marital = table(assurance$Sinistre2, assurance$Marital2)
+addmargins(tableau_sinistre_marital)
+
+# Barplot empilé pour visualiser la distribution des sinistres selon le statut marital
+barplot(tableau_sinistre_marital, 
+        col = c("lightblue", "lightgreen"), 
+        legend = rownames(tableau_sinistre_marital),
+        main = "Distribution des Sinistres selon le Statut Marital", 
+        xlab = "Statut Marital", 
+        ylab = "Nombre d'assurés")
+
+
+```
+
+
