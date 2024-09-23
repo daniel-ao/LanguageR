@@ -307,4 +307,116 @@ lines(loyersMoyens$enfants, loyersMoyens$loyer, col="red")
 ```
 
 
+#####################################################################################################
+
+                            Session Sep 23, morning
+
+#####################################################################################################
+
+
+
+
+
+
+D2:2 Valeurs manqyanutes d'une variable quantitative : imputation pas moyenne ou mediane
+
+```{r}
+
+# Pour comprendre le fonctionnement
+(v=c(10,2,20,NA,7,NA,8,7))
+x=v
+
+is.na(x) #cherche les na dans x
+which(is.na(x)) # la liste des indices des NA
+
+x[is.na(x)] = mean(x, na.rm = T) # Imputation par la moyenne
+
+x=v
+
+x[is.na(x)]= median(x, na.rm=T) # Imputation par la mediane
+
+
+# Imputation pour la variable loyer
+
+summary(pop$loyer)
+
+pop$loyer2= pop$loyer
+pop$loyer2[is.na(pop$loyer2)] =0 # on impute par 0
+summary(pop$loyer2)
+
+pop$loyer3=pop$loyer
+pop$loyer3[is.na(pop$loyer3)]= mean(pop$loyer3, na.rm=T) # On impute par la moyenne
+
+
+pop$loyer4= pop$loyer
+pop$loyer4[is.na(pop$loyer4)] = median(pop$loyer4, na.rm=T) # On impute par la mediane
+summary(pop$loyer4)
+```
+
+D2.3
+
+Valeurs manquantes d'une variable qualitative 
+```{r}
+
+# On impute par une valeur existante
+pop$loisirs2= poop$loisirs
+table(pop$loisirs2, useNA= "always")
+
+pop$loisirs2[is.na(pop$loisirs2)] = "autres" # On impute par la valeur autres
+table(pop$loisirs2, useNA = "always")
+
+#On cree une nouvelle modalite pour remplacer les valeurs manquantes
+
+pop$etudes2= pop$etudes
+table(pop$etudes2, useNA = "always")
+
+# On ajoute la nouvelle modalite dans les listes des modalites en respectant logiqueS
+levels(pop$etudes2)= c("sans diplome", levels(pop$etudes2))
+pop$etudes2 = ordered(pop$etudes2, levels= c("sans diplome", levels(pop$etudes2)) )
+
+pop$etudes2[is.na(pop$etudes2)] = "sans diplome" # ON impute
+
+table(pop$etudes2, useNA="always")
+
+# Pour une qualitative nominale
+skim::skim(pop)
+
+
+##############################
+#Check phone Sep 23, 10:11
+##############################
+
+
+```
+#####################################################################################################
+
+                            Session Sep 23, after noon
+
+#####################################################################################################
+
+
+
+
+
+```{r}
+#D.3.1 Recherche des valeurs suspectes avec boxplot
+
+pop$salaire2= pop$salaire
+Box= boxplot(pop$salaire2)
+
+pop[pop$salaire2 %in% Box$out,]
+
+# D.3.2 Imputation par la moyenne
+
+pop$salaire2[pop$salaire2 %in% Box$out] = mean(pop$salaire2, na.rm =T)
+
+
+# D.3.3 Imputation par une moyenne conditionelle
+unique(pop$tempsPlein)
+pop$salaire3= pop$salaire
+
+pop$salaire3[ (pop$salaire3 %in% Box$out) & (pop$tempsPlein =="oui")]
+mean(pop$salaire3)
+
+```
 

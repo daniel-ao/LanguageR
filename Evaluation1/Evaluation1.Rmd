@@ -7,6 +7,7 @@ output:
   html_document: default
 ---
 
+
 # Importation 
 ```{r}
 
@@ -91,7 +92,7 @@ tableau_frequences_masse = prop.table(tableau_effectifs_masse) * 100
 
 # c) Tableaux des effectifs et des fréquences (La satisfaction du sport pratiqué)
 tableau_effectifs_satisfaction = table(pop$Satisfaction_Sport)
-tableau_frequences_satisfaction = prop.table(tableau_effectifs_satisfaction) * 100
+tableau_frequences_satisfaction = prop.table(tableau_effectifs_satisfaction)
 
 # Graphique en tuyaux d'orgue
 barplot(tableau_effectifs_satisfaction, 
@@ -164,7 +165,7 @@ for (sponsor in unique_sponsors) {
        breaks = 10)
 }
 
-par(mfrow = c(1, 1)) # Réinitialisation
+#par(mfrow = c(1, 1)) # Réinitialisation
 
 
 ```
