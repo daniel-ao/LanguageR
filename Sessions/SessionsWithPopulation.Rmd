@@ -7,7 +7,7 @@ date: "2024-09-12"
 ---
 
 ```{r}
-pop= read.csv2("/home/danielao/Desktop/L3iA/LanguageR/Session1_2/population6.csv", header = T ,stringsAsFactors= T, na.strings = c("NA", "na", ""))
+pop= read.csv2("/home/danielao/Desktop/L3iA/LanguageR/Sessions/population6.csv", header = T ,stringsAsFactors= T, na.strings = c("NA", "na", ""))
 
 pop= transform(pop, 
               etudes= ordered(etudes, levels=
@@ -425,4 +425,147 @@ mean(pop$salaire3[pop$tempsPlein =="oui"],na.rm=T)
 pop$salaire3[pop$salaire %in% Box$out]
 
 ```
+
+# T - Automatisation des statistiques a 1 variable nominale
+
+Tableau des effectifs et des frquences d'une  variable qualitative nominale avec une sortie de tableau utilisable
+
+```{r}
+
+freq_ord <- function(x){
+  
+  (numero_var = match (x, names(pop))) # On recupere le numero de la variable
+  (N= rev(sort(table(pop[,numero_var])))) # Tableau des effectifs range par effectifs decroissants
+  
+  (P=prop.table(N)*100) #Frequences
+}
+
+freq_ord("loisirs")
+```
+
+
+# Tableau des effectifs et des frequences d'une  variable qualitative nominale avec affichage des tableaux d'effectifs et des frequences
+
+```{r}
+
+tab_nom <- function(x){
+  
+  (numero_var = match (x, names(pop))) # On recupere le numero de la variable
+  (N= rev(sort(table(pop[,numero_var])))) # Tableau des effectifs range par effectifs decroissants
+  
+  (P=prop.table(N)*100) #Frequences
+  print("Le tableau des effectifs")
+  print(N)
+  print("Le tableau des frequences")
+  print(P)
+}
+
+tab_nom("loisirs")
+
+```
+
+
+# Secteurs circulaires des frequences d'une variable qualitative nominale
+
+```{r}
+
+
+Secteurs <- function(x){
+  
+  (numero_var = match (x, names(pop))) # On recupere le numero de la variable
+  (N= rev(sort(table(pop[,numero_var])))) # Tableau des effectifs range par effectifs decroissants
+  
+  (P=prop.table(N)*100) #Frequences
+  
+  pie(P, main=names(pop)[numero_var],labels= paste(names(P), paste(round(P,0),"%"),sep="\n"),col=terrain.colors(nlevels(pop[,numero_var])))
+}
+
+# Palette de couleurs : terrain.colors() ou rainbow()
+
+Secteurs("sexe")
+nlevels(pop$loisirs) # Nombre de modalites ##EXPLANATION OF nlevels##
+
+```
+
+
+# Tuyau d'orgue des frequences d'une variable qualitative nominale
+
+```{r}
+Tuyaux_nom <- function(x){
+  
+  (numero_var = match (x, names(pop))) # On recupere le numero de la variable
+  (N= rev(sort(table(pop[,numero_var])))) # Tableau des effectifs range par effectifs decroissants
+  
+  (P=prop.table(N)*100) #Frequences
+  
+ par(xpd=NA)
+ graph = barplot(P, main= names(pop)[numero_var], 
+                 col="cyan4",
+                 space=1,
+                 las=1,
+                 ylab="Frequences en pourcentage")
+                 text(graph, P, paste(round(P),"%"),adj=c(0.5,-0.5))
+}
+
+#Call function
+```
+
+# Automatisation des statistiques a 1 variable qualitative ordinale 
+Tableau des effectifs et frequences d'une variable quali ordinale avec affichage des tables d'effectifs et frequences
+
+```{r}
+
+tab_ord <- function(x){
+  
+  (numero_var = match (x, names(pop))) # On recupere le numero de la variable
+  (N= table(pop[,numero_var])) # Tableau des effectifs range par effectifs decroissants
+  
+  (P=prop.table(N)*100) #Frequences
+  print("Le tableau des effectifs")
+  print(N)
+  print("Le tableau des frequences")
+  print(P)
+ 
+}
+
+tab_ord("etudes")
+```
+# Tuyau d'orgue des effectifs d'une variable qualitative ordinale
+```{r}
+
+Tuyaux_ord <- function(x){
+  
+  (numero_var = match (x, names(pop))) # On recupere le numero de la variable
+  (N= table(pop[,numero_var])) # Tableau des effectifs 
+  
+  
+ par(xpd=NA)
+ graph = barplot(N, main= names(pop)[numero_var], 
+                 col=heat.colors(nlevels(pop[,numero_var])),
+                 space=1,
+                 las=1,
+                 ylab="Effectifs")
+                 text(graph, N, N,adj=c(0.5,-0.5))
+}
+
+##Call function
+```
+
+# III - Personalisation de boxplot
+en donnant les variables dans le bon ordre
+```{r}
+
+boxp <- function(quali, quanti, titre, y){
+  
+  p = nlevels(quali)
+  
+  par(xpd=NA)
+  b = boxplot(quanti~quali, main = titre, boxwex= 0.3, col= rainbow(p))
+  text(x=rep(1:p, each=5)+0.3, y= as.vector(b$stats), labels= as.vector(b$stats), col=c("green","blue"), cex=0.7)
+  text(x=1:p, y=rep(y, p), labels= paste(b$n, "observations"), col="blue")# pour ajouter les effectifs
+}
+boxp(voiture, budgetVacances, "test de la fonction",20)
+
+```
+
 

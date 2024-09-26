@@ -106,40 +106,10 @@ summary(assurance$Enfant2)
 # Check for missing values in Origine
 table(assurance$Origine, useNA = "always")
 
-# Impute missing values for Origine by creating a new modality
-assurance$Origine2 = assurance$Origine
-levels(assurance$Origine2) = c(levels(assurance$Origine2), "inconnu")  # Ajout d'une nouvelle modalité 'inconnu'
-assurance$Origine2[is.na(assurance$Origine2)] = "inconnu"  # Imputation par "inconnu"
-table(assurance$Origine2, useNA = "always")
 
 # 3. Imputation for Marital (Qualitative Ordinale)
 # Check for missing values in Marital
 table(assurance$Marital, useNA = "always")
-
-# Impute missing values for Marital by creating a new modality
-assurance$Marital2 = assurance$Marital
-levels(assurance$Marital2) = c(levels(assurance$Marital2), "inconnu")  # Ajout de la modalité 'inconnu'
-assurance$Marital2[is.na(assurance$Marital2)] = "inconnu"  # Imputation par "inconnu"
-table(assurance$Marital2, useNA = "always")
-
-# 4. Imputation for Sexe (Qualitative Nominale)
-# Check for missing values in Sexe
-table(assurance$Sexe, useNA = "always")
-
-# Impute missing values for Sexe by creating a new modality
-assurance$Sexe2 = assurance$Sexe
-levels(assurance$Sexe2) = c(levels(assurance$Sexe2), "inconnu")  # Ajout de la modalité 'inconnu'
-assurance$Sexe2[is.na(assurance$Sexe2)] = "inconnu"  # Imputation par "inconnu"
-table(assurance$Sexe2, useNA = "always")
-
-# 5. Imputation for NbSinistre (Quantitative Variable)
-# Check for missing values in NbSinistre
-summary(assurance$NbSinistre)
-
-# Impute missing values for NbSinistre using the mean
-assurance$NbSinistre2 = assurance$NbSinistre
-assurance$NbSinistre2[is.na(assurance$NbSinistre2)] = mean(assurance$NbSinistre, na.rm = TRUE)  # Imputation par la moyenne
-summary(assurance$NbSinistre2)
 
 table(assurance$Sinistre, useNA = "always")
 
